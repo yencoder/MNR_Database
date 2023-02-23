@@ -2,7 +2,7 @@
 // create array for errors
 $errors = array();
 // get and sanitize each input
-$user = trim(filter_var($_POST['uname'] ?? null, FILTER_SANITIZE_STRING));
+$user = trim(filter_var($_POST['rollNumber'] ?? null, FILTER_SANITIZE_STRING));
 $pass = trim(filter_var($_POST['psw'] ?? null, FILTER_SANITIZE_STRING));
 // if cookies already exists
 if(isset($_COOKIE['mysitecookie'])) { $user=$_COOKIE['mysitecookie']; }
@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
   include 'includes/library.php';
   $pdo = connectDB();
   // query for username
-  $query = "select userid, username, password from users where username=?";  
+  $query = "select rollNumber, password from password where username=?";  
   $stmt=$pdo->prepare($query);
   $results = $stmt->execute([$user]);
   // erorr verification
@@ -44,14 +44,17 @@ if (isset($_POST['submit'])) {
         <h2>Log in</h2>
         <div class="container">
           <div>
-            <label for="uname">Username</label>
-            <input id ="uname" type="text" placeholder="Enter Username" name="uname" required value="<?=$user;?>">
+            <label for="rollNumber
+        ">Roll Number</label>
+            <input id ="rollNumber
+        " type="text" placeholder="Enter Roll Number" name="rollNumber
+        " required value="<?=$user;?>">
           </div>
           <div>
             <label for="psw">Password</label>
             <input id = "psw" type="password" placeholder="Enter Password" name="psw" required value="<?=$pass;?>"> 
           </div>
-          <div><span class="error <?=!isset($errors['login']) ? 'hidden' : "";?>">Invalid username and/or password</span></div>
+          <div><span class="error <?=!isset($errors['login']) ? 'hidden' : "";?>">Invalid roll number and/or password</span></div>
           <div><button id="submit" name="submit">Log In</button></div>
           <div>
             <label>Remember me</label>
