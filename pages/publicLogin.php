@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
             <input type="checkbox" name="remember">
           </div>
           <div>
-            <span class="psw"><a href="forgot.php">Forgot password</a></span>
+            <span class="psw"><a href="forgotPassword.php">Forgot password</a></span>
           </div>
         </div>    
       </form>
