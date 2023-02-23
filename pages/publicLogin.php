@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
   $query = "select rollNumber, password from password where username=?";  
   $stmt=$pdo->prepare($query);
   $results = $stmt->execute([$user]);
-  // erorr verification
+  // error verification
   if($row = $stmt->fetch()) {      
     if(password_verify($pass, $row['password'])) {
       session_start();
