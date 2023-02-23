@@ -1,8 +1,8 @@
 <?php
 // Get the acutal document and webroot path for virtual directories
 $direx = explode('/', getcwd());
-define('DOCROOT', "/$direx[1]/$direx[2]/"); // /home/username/
-define('WEBROOT', "/$direx[1]/$direx[2]/$direx[3]/"); //home/username/public_html
+define('DOCROOT', "/$direx[1]/$direx[2]/"); // /home/mnrf_project/
+define('WEBROOT', "/$direx[1]/$direx[2]/$direx[3]/"); //home/mnrf_project/public_html
 
 /*############################################################
 Function for connecting to the database
