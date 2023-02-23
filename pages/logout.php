@@ -7,7 +7,7 @@ $_SESSION = array();
 session_destroy();
 if (isset($_POST["submit"])) {
   // redirect
-  header("Location: stafflogin.php");
+  header("Location: staffLogin.php");
   exit();
 }
 ?>
