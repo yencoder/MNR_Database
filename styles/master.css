@@ -1,14 +1,122 @@
 @import url("reset.css"); /* import reset */
-
-:root{
-     /* set variables */
+/* import google font */
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+:root {
+  /* set variables */
+  --offblack: #0A0A0B;
+  --dullblue: #0B3954;
+  --bluetint: #BFD7EA;
+  --softgray: #848B8E;
+  --offwhite: #FEFFFE;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  color: var(--offblack); /* set to black as default and convert each button to white manually */
+  background-image: linear-gradient(to top left, var(--dullblue), var(--offwhite) 110%);
+  background-repeat: no-repeat;
 }
-
+body {
+  padding: 1rem;
+}
 /* header & footer */
 header, footer {
-
+  font-family: 'Arimo', sans-serif;
+  font-size: 3rem;
+  color: var(--offblack);
+  background-image: linear-gradient(to right, var(--bluetint), var(--offwhite));
+  filter: drop-shadow(0.3rem 0.3rem 0.2rem var(--offblack));
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5em;
+}
+/* header */
+header {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+header ul {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+header li {
+  background-color: var(--dullblue);
+  border: 0.05em solid var(--softgray);
+  border-radius: 1em;
+  padding: 0.1em 0.5em;
+  margin: 0em 0.2em;
+}
+header a {
+  text-decoration: none;
+  color: var(--offwhite);
+}
+header a:hover { color: greenyellow; }
+header a:active { color: hotpink; }
+/* footer */
+footer {
+  font-size: 1rem;
+  justify-content: center;
+  padding: 0.2em;
 }
 /* -------------------------------- home.php -------------------------------- */
+.home {
+  font-size: 1.2rem;
+  font-family: 'Comfortaa', cursive;
+  color: var(--offblack);
+  background-color: var(--offwhite);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  border-radius: 0.6em;
+  padding: 1em;
+  margin: 1em 0em;
+}
+.home:first-child {
+  align-items: center;
+  padding: 1em 2em;
+}
+.home:first-child h2 { font-size: 2.5em; }
+.home:nth-child(2) h2 { font-size: 1.8em; }
+.home:nth-child(2) p { padding: 1em; }
+#public, #staff {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: var(--offwhite);
+  background-color: var(--dullblue);
+  border: 0.05em solid var(--softgray);
+  transition: border-color;
+  border-radius: 1rem;
+  padding: 1em 2.5em;
+  margin: 1em 0em;
+}
+#public:hover, #staff:hover { color: greenyellow;  box-shadow: 0em 0em 0.2em;}
+#public:active, #staff:hover { color: hotpink; }
+.home:last-child h2 {
+  font-size: 2em;
+  align-self: center;
+  margin-bottom: 0.5em;
+}
+.home:last-child p {
+  font-family: 'Indie Flower', cursive;
+  margin-bottom: 0.5em;
+}
+/* ---------------------------------publicLogin.php-------------------------------- */
 
+/* ---------------------------------staffLogin.php--------------------------------- */
 
-/* ---------------------------------login.php-------------------------------- */
+/* -------------------------------- logout.php -------------------------------- */
+.logout h2 { margin: 0.5em auto; }
+.logout form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logout button { 
+  width:40%;
+  margin-bottom: 1.5em;
+}
