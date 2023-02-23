@@ -8,8 +8,11 @@
         session_start();
         // session check for user information
         if (!isset($_SESSION['username'])) { ?>
-          <li><a href="stafflogin.php">Login</a></li>
+          <li><a href="staffLogin.php">Login</a></li>
       <?php
+        } elseif(!isset($_SESSION['rollNumber'])) { ?>
+          <li><a href="publicLogin.php">Login</a></li>
+      <?php 
         } else { ?>
           <li><a href="home.php">My Profile</a></li>
           <li><a href="logout.php">Logout</a></li>
