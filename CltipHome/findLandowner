@@ -1,0 +1,6 @@
+<?php
+
+$landlordName = $_GET["landlordName"];
+
+$businessName = $_GET["businessName"];
+?>
