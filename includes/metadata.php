@@ -3,4 +3,4 @@
 <title>
     <?php echo $page_title ?>
 </title>
-<link rel="stylesheet" href="styles/master.css" />
+<link rel="stylesheet" href="../styles/master.css" />

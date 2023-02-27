@@ -1,8 +1,8 @@
 <header>
-  <h1>Sign Up with Us&#33;</h1>
+  <h1>Ministry of Natural Resources and Forestry</h1>
   <nav>
     <ul>
-      <li><a href="stafflogin.php">Home</a></li>
+      <li><a href="home.php">Home</a></li>
       <?php
         // start session
         session_start();
