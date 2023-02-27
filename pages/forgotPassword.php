@@ -1,5 +1,5 @@
 <?php
-require_once('includes/library.php');
+require_once('../includes/library.php');
 // create array for errors
 $errors = array();
 // get and sanitize each input
@@ -60,11 +60,11 @@ if (isset($_POST['submit'])) {
 <html lang="en">
   <head>
     <?php $page_title = "Reset Password"; ?>
-    <?php include "includes/metadata.php" ?>
+    <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css"/>
   </head>
   <body class="logincreate">
-    <?php include 'includes/header.php';?>
+    <?php include '../includes/header.php';?>
     <section>
       <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
         <h2>Reset Password</h2>
@@ -98,6 +98,6 @@ if (isset($_POST['submit'])) {
         </div>
       </form>
     </section>
-    <?php include "includes/footer.php" ?>
+    <?php include "../includes/footer.php" ?>
   </body>
 </html>
