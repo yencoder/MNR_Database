@@ -10,7 +10,16 @@
         <div class="content">
             <section class="home">
                 <h2>About Us</h2>
-                <p>Enter MNRF info here</p>
+                <section class="aboutUs">
+                    <div class="mftipInfo">
+                        <h4>Managed Forest Tax Incentive Program (MFTIP)</h4>
+                        <p>Enter Info Here</p>
+                    </div>
+                    <div class="cltipInfo">
+                        <h4>Conservation Tax Incentive Program (CLTIP)</h4>
+                        <p>Enter Info Here</p>
+                    </div>
+                </section>
                 <a href="publicLogin.php"><button id="public" name="public">Public Login <i class="fas fa-pencil-alt"></i></button></a>
                 <a href="staffLogin.php"><button id="staff" name="staff">Staff Login <i class="fas fa-pencil-alt"></i></button></a>
             </section>

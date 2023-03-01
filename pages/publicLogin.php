@@ -40,15 +40,12 @@ if (isset($_POST['submit'])) {
   <body class="logincreate">
     <?php include '../includes/header.php';?>
     <section>
-      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off">
-        <h2>Log in</h2>
+      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off" class="loginForm">
+        <h2>Public Login</h2>
         <div class="container">
           <div>
-            <label for="rollNumber
-        ">Roll Number</label>
-            <input id ="rollNumber
-        " type="text" placeholder="Enter Roll Number" name="rollNumber
-        " required value="<?=$user;?>">
+            <label for="rollNumber">Roll Number</label>
+            <input id ="rollNumber" type="text" placeholder="Enter Roll Number" name="rollNumber" required value="<?=$user;?>">
           </div>
           <div>
             <label for="psw">Password</label>

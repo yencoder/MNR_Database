@@ -8,14 +8,14 @@
 :root {
   /* set variables */
   --offblack: #0A0A0B;
-  --dullblue: #0B3954;
+  --dullgreen: #2D7E1A;
   --bluetint: #BFD7EA;
   --softgray: #848B8E;
   --offwhite: #FEFFFE;
   min-height: 100vh;
   font-family: "Lato", sans-serif;
   color: var(--offblack); /* set to black as default and convert each button to white manually */
-  background-image: linear-gradient(to top left, var(--dullblue), var(--offwhite) 110%);
+  background-image: linear-gradient(to top left, var(--dullgreen), var(--offwhite) 110%);
   background-repeat: no-repeat;
 }
 body {
@@ -45,7 +45,7 @@ header ul {
   flex-wrap: wrap;
 }
 header li {
-  background-color: var(--dullblue);
+  background-color: var(--dullgreen);
   border: 0.05em solid var(--softgray);
   border-radius: 1em;
   padding: 0.1em 0.5em;
@@ -87,7 +87,7 @@ footer {
   font-size: 1.2em;
   text-decoration: none;
   color: var(--offwhite);
-  background-color: var(--dullblue);
+  background-color: var(--dullgreen);
   border: 0.05em solid var(--softgray);
   transition: border-color;
   border-radius: 1rem;
@@ -105,8 +105,31 @@ footer {
   font-family: 'Indie Flower', cursive;
   margin-bottom: 0.5em;
 }
-/* ---------------------------------publicLogin.php-------------------------------- */
+.aboutUs {
+  displaY: flex;
+  margin: 0.5em, 0.5em;
+}
+.mftipInfo, .cltipInfo {
+  align-self: auto;
+  margin: 0.5em;
+}
+.mftipInfo:last-child p, .cltipInfo:last-child p {
+  padding: 0.5em 1em;
+}
 
+/* ---------------------------------publicLogin.php-------------------------------- */
+.loginForm {
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--offwhite);
+  padding: 0.5em;
+  margin: 0.5em;
+}
+.loginForm:first-child h2 {
+  font-size: 2.5em;
+}
 /* ---------------------------------staffLogin.php--------------------------------- */
 
 /* -------------------------------- logout.php -------------------------------- */
