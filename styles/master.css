@@ -1,5 +1,5 @@
-@import url("reset.css");
 /* import reset */
+@import url("reset.css");
 /* import google font */
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
@@ -22,14 +22,9 @@
   background-image: linear-gradient(to top left, var(--dullgreen), var(--offwhite) 110%);
   background-repeat: no-repeat;
 }
-
-body {
-  padding: 1rem;
-}
-
+body { padding: 1rem; }
 /* header & footer */
-header,
-footer {
+header, footer {
   font-family: 'Arimo', sans-serif;
   font-size: 2rem;
   color: var(--offblack);
@@ -40,21 +35,18 @@ footer {
   flex-wrap: wrap;
   border-radius: 0.2em;
 }
-
 /* header */
 header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
 }
-
 header ul {
   font-size: 1.5rem;
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
 }
-
 header li {
   background-color: var(--dullgreen);
   border: 0.05em solid var(--softgray);
@@ -62,27 +54,39 @@ header li {
   padding: 0.1em 0.5em;
   margin: 0em 0.2em;
 }
-
 header a {
   text-decoration: none;
   color: var(--offwhite);
 }
-
-header a:hover {
-  color: greenyellow;
+header a:hover { color: greenyellow; }
+header a:active { color: hotpink; }
+.mainNav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: 'Comfortaa', cursive;
+  font-size: 1em;
+  color: var(--offblack);
+  background-color: var(--offwhite);
+  list-style-type: none;
+  margin-top: 1em;
+  padding-inline: 1em;
 }
-
-header a:active {
-  color: hotpink;
+.mainNav li {
+  margin-block: 0.5rem;
+  margin-right: 0.5rem;
 }
-
+.mainNav li:hover {
+  padding: 0.5rem;
+  color:darkslateblue;
+  box-shadow: 0em 0em 0.2em;
+}
 /* footer */
 footer {
   font-size: 1rem;
   justify-content: center;
   padding: 0.2em;
 }
-
 /* -------------------------------- home.php -------------------------------- */
 .home {
   font-size: 1.2rem;
@@ -92,30 +96,17 @@ footer {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border-radius: 0.6em;
   padding: 1em;
-  margin: 1em 0em;
+  margin-bottom: 1em;
 }
-
 .home:first-child {
   align-items: center;
   padding: 1em 2em;
 }
-
-.home:first-child h2 {
-  font-size: 2.5em;
-}
-
-.home:nth-child(2) h2 {
-  font-size: 1.8em;
-}
-
-.home:nth-child(2) p {
-  padding: 1em;
-}
-
-#public,
-#staff {
+.home:first-child h2 { font-size: 2.5em; }
+.home:nth-child(2) h2 { font-size: 1.8em; }
+.home:nth-child(2) p { padding: 1em; }
+#public, #staff {
   font-size: 1.2em;
   text-decoration: none;
   color: var(--offwhite);
@@ -126,50 +117,33 @@ footer {
   padding: 1em 2.5em;
   margin: 1em 0em;
 }
-
-#public:hover,
-#staff:hover {
+#public:hover, #staff:hover {
   color: greenyellow;
   box-shadow: 0em 0em 0.2em;
 }
-
-#public:active,
-#staff:hover {
-  color: hotpink;
-}
-
+#public:active, #staff:hover { color: hotpink; }
 .home:last-child h2 {
   font-size: 2em;
   align-self: center;
   margin-bottom: 0.5em;
 }
-
 .home:last-child p {
   font-family: 'Comforta';
   padding: 0.5em;
 }
-
 .aboutUs {
   displaY: flex;
   margin: 0.5em, 0.5em;
 }
-
-.mftipInfo,
-.cltipInfo {
+.mftipInfo, .cltipInfo {
   align-self: auto;
   margin: 0.5em;
 }
-
-.mftipInfo:last-child p,
-.cltipInfo:last-child p {
-  padding: 0.5em 1em;
-}
-
+.mftipInfo:last-child p, .cltipInfo:last-child p { padding: 0.5em 1em; }
 .aboutUs div {
   width: 50%;
   text-align: center;
 }
-
 /* ---------------------------------publicLogin.php-------------------------------- */
 .loginForm {
   font-family: 'Comfortaa', cursive;
@@ -180,26 +154,16 @@ footer {
   padding: 0.5em;
   margin: 0.5em;
 }
-.hidden {
-  display: none;
-}
-.loginForm:first-child h2 {
-  font-size: 2.5em;
-}
-
+.hidden { display: none; }
+.loginForm:first-child h2 { font-size: 2.5em; }
 .logincontainer {
   display: flex;
   flex-direction: column;
   margin: 1em;
 }
-
-.logincontainer div {
-  padding: 0.5em;
-}
+.logincontainer div { padding: 0.5em; }
 /* -------------------------------- logout.php -------------------------------- */
-.logout h2 {
-  margin: 0.5em auto;
-}
+.logout h2 { margin: 0.5em auto; }
 .logout form {
   display: flex;
   flex-direction: column;
@@ -209,7 +173,6 @@ footer {
   width: 40%;
   margin-bottom: 1.5em;
 }
-
 /* ---------------------------------managedForestPlan.php--------------------------------- */
 .queryForm {
   font-family: 'Comfortaa', cursive;
@@ -218,31 +181,22 @@ footer {
   justify-content: space-between;
   background-color: var(--offwhite);
   padding-inline: 1em;
-  margin-block: 0.5em;
+  margin-bottom: 0.5em;
 }
-
 .queryForm h2 {
   background-color: #f7caac;
   width: fit-content;
   padding: 1em;
   margin-block: 1em;
 }
-
 .search div {
   display: flex;
   flex-direction: column;
   width: fit-content;
   padding-block: 0.5em;
 }
-
-.search div input {
-  margin-bottom: 0.5em;
-}
-
-.searchResults {
-  width: 70%;
-}
-
+.search div input { margin-bottom: 0.5em; }
+.searchResults { width: 70%; }
 .results {
   height: 75%;
   overflow: auto;
@@ -251,10 +205,7 @@ footer {
   display: table;
   width: 100%;
 }
-
-.resultsTable,
-.resultsTable th,
-.resultsTable td {
+.resultsTable, .resultsTable th, .resultsTable td {
   border-collapse: collapse;
   border: 0.1em solid #848B8E;
   box-sizing: border-box;
