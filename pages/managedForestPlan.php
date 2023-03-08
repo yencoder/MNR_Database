@@ -7,23 +7,27 @@ $property = trim(filter_var($_POST['property'] ?? null, FILTER_SANITIZE_STRING))
 $LOFirstName = trim(filter_var($_POST['LOFirstName'] ?? null, FILTER_SANITIZE_STRING));
 $LOLastName = trim(filter_var($_POST['LOLastName'] ?? null, FILTER_SANITIZE_STRING));
 $LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
+// show default view of Parcels
+// connect to database
+include '../includes/library.php';
+$pdo = connectDB();
+// query for results
+$query = "select * from Parcel";
+$stmt=$pdo->prepare($query);
+$stmt->execute();
+$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// get all the column names
+$columnNames = array_keys($row[0]);
 // post submission
-//if (isset($_POST['searchPlanNumber'])) {
-  // connect to database
-  include '../includes/library.php';
-  $pdo = connectDB();
+if (isset($_POST['searchPlanNumber']) && isset($_POST['planNumber'])) {
   // query for results
-  $query = "select * from Parcel";
+  $query = "select * from Accounts";
   $stmt=$pdo->prepare($query);
   $stmt->execute();
-  
   $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
   // get all the column names
   $columnNames = array_keys($row[0]);
-
-  //$results = $stmt->execute([$user]);
-  //var_dump($results);
-//}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,19 +44,19 @@ $LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
         <div>
           <label for="planNumber">By Plan Number:</label>
           <input id ="planNumber" type="text" placeholder="5-digit plan number" name="planNumber" value="<?=$planNumber;?>">
-          <button type="submit" name="searchPlanNumber">Search</button>
+          <button type="submit" name="searchPlanNumber" value="Search">Search</button>
         </div>
         <div>
           <label for="property">By Property:</label>
           <input id ="property" type="text" placeholder="15-digit roll number" name="property" value="<?=$property;?>">
-          <button type="submit" name="searchProperty">Search</button>
+          <button type="submit" name="searchProperty" value="Search">Search</button>
         </div>
         <div>
           <label for="LO">By Landowner:</label>
           <input id ="LO" type="text" placeholder="First Name" name="LOFirstName" value="<?=$LOFirstName;?>">
           <input id ="LO" type="text" placeholder="Last Name" name="LOLastName" value="<?=$LOLastName;?>">
           <input id ="LO" type="text" placeholder="Business/Organization" name="LOOrg" value="<?=$LOOrg;?>">
-          <button type="submit" name="searchLO">Search</button>
+          <button type="submit" name="searchLO" value="Search">Search</button>
         </div>
       </div>
       <div class= "searchResults">
