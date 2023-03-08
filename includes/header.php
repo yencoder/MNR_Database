@@ -7,14 +7,15 @@
         // start session
         session_start();
         // session check for user information
-        if (!isset($_SESSION['username'])) { ?>
+        if (!isset($_SESSION['rollNumber'])) { ?>
           <li><a href="publicLogin.php">Login</a></li>
       <?php
         } elseif(!isset($_SESSION['rollNumber'])) { ?>
           <li><a href="publicLogin.php">Login</a></li>
       <?php 
         } else { ?>
-          <li><a href="home.php">My Profile</a></li>
+          <li><a href="CLTIP_home.php">CLTIP</a></li>
+          <li><a href="managedForestPlan.php">MFTIP</a></li>
           <li><a href="logout.php">Logout</a></li>
       <?php } ?>
     </ul>
