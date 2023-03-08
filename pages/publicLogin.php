@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
       session_start();
       // set up a session with the user's creditionals
       $_SESSION['rollNumber'] = $user;
-      header("Location: managedForestPlan.php");
+      header("Location: mftipPlan.php");
       exit();
     }
     else { $errors['login'] = true; }
