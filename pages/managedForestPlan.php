@@ -7,27 +7,21 @@ $property = trim(filter_var($_POST['property'] ?? null, FILTER_SANITIZE_STRING))
 $LOFirstName = trim(filter_var($_POST['LOFirstName'] ?? null, FILTER_SANITIZE_STRING));
 $LOLastName = trim(filter_var($_POST['LOLastName'] ?? null, FILTER_SANITIZE_STRING));
 $LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
-// show default view of Parcels
 // connect to database
 include '../includes/library.php';
 $pdo = connectDB();
-// query for results
-$query = "select * from Parcel";
-$stmt=$pdo->prepare($query);
-$stmt->execute();
-$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// get all the column names
-$columnNames = array_keys($row[0]);
 // post submission
 if (isset($_POST['searchPlanNumber'])) {
   $query = "select * from Accounts";
-  var_dump($query);
-  //header('refresh:0');
-} else if (isset($_POST['searchProperty']) && isset($_POST['property'])) {
-  $query = "select * from Accounts";
-  header('refresh:0');
+} else if (isset($_POST['searchProperty'])) {
+  $query = "select * from Parcel";
+} else if (isset($_POST['searchLO']))  {
+  $query = "select * from Municipality";
+} else {
+  // queury for default view from Parcels table
+  $query = "select * from Parcel";
 }
-// query for resulsts
+// query for results
 $stmt=$pdo->prepare($query);
 $stmt->execute();
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -42,7 +36,7 @@ $columnNames = array_keys($row[0]);
   </head>
   <body>
     <?php include '../includes/header.php';?>
-    <section class="queryForm">
+    <form class="queryForm" action= "" method="POST">
       <div class="search">
         <h2>Plans</h2>
         <h3>Find a Managed Forest Plan</h3>
@@ -88,7 +82,7 @@ $columnNames = array_keys($row[0]);
           </table>
         </div>
       </div>
-    </section>
+                  </form>
     <?php include "../includes/footer.php" ?>
   </body>
 </html>
