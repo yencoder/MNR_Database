@@ -20,7 +20,11 @@
                         <p>Ontario has a rich and varied natural heritage. Many of Ontario's most significant natural areas are privately owned. As the pressures on such areas increase, it is important to encourage private stewardship of the province's outstanding natural features. The Conservation Land Tax Incentive Program (CLTIP) is designed to recognize, encourage and support the long-term private stewardship of Ontario's provincially significant conservation lands by providing property tax relief to those landowners who agree to protect the natural heritage values of their property. The current tax relief offered is 100 % tax exemption on that eligible portion of the property.</p>
                     </div>
                 </section>
-                <a href="publicLogin.php"><button id="public" name="public">Public Login <i class="fas fa-pencil-alt"></i></button></a>
+                <?php
+                  // session check for user information
+                  if (!isset($_SESSION['rollNumber'])) {?>
+                    <a href="publicLogin.php"><button id="public" name="public">Public Login <i class="fas fa-pencil-alt"></i></button></a>
+                <?php }?>
             </section>
         </div>
         <?php include "../includes/footer.php" ?>
