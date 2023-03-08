@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php include '../includes/header.php';?>
-	<h1>CLTIP Program Search</h1>
+	<h1 class="headingBig">CLTIP Program Search</h1>
 	<form action="search.php" method="post" class="queryForm">
 		<div class="search">
 			<label for="rollnumber">15-digit Roll Number:</label>
@@ -28,8 +28,8 @@
 <input class="button" type="submit" value="Search">
 </form>
 
-<div class="pending-requests" class="results">
-<h2>Pending Requests for Reconsideration</h2>
+<div class="results">
+<h2 class="headingSmall">Pending Requests for Reconsideration</h2>
 
 <table class="resultsTable">
     <thead>
@@ -115,8 +115,8 @@
 </table>
 
 </div>
-<div class="pending-requests" class="results">
-<h2>Completed Requests for Reconsideration</h2>
+<div class="results">
+<h2 class="headingSmall">Completed Requests for Reconsideration</h2>
 
 <table class="resultsTable">
     <thead>

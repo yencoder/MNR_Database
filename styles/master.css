@@ -250,3 +250,12 @@ footer {
 }
 
 /* ---------------------------------staffLogin.php--------------------------------- */
+.headingBig{
+    padding: 1.5em;
+    font-size: xx-large;
+  }
+
+.headingSmall{
+    padding: 0.5em;
+    font-size: x-large;
+  }
