@@ -6,19 +6,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 :root {
   /* set variables */
   --offblack: #0A0A0B;
-  --dullblue: #0B3954;
+  --dullgreen: #2D7E1A;
   --bluetint: #BFD7EA;
   --softgray: #848B8E;
   --offwhite: #FEFFFE;
   min-height: 100vh;
   font-family: "Lato", sans-serif;
-  color: var(--offblack);
-  /* set to black as default and convert each button to white manually */
-  background-image: linear-gradient(to top left, var(--dullblue), var(--offwhite) 110%);
+  color: var(--offblack); /* set to black as default and convert each button to white manually */
+  background-image: linear-gradient(to top left, var(--dullgreen), var(--offwhite) 110%);
   background-repeat: no-repeat;
 }
 
@@ -30,13 +29,14 @@ body {
 header,
 footer {
   font-family: 'Arimo', sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--offblack);
   background-image: linear-gradient(to right, var(--bluetint), var(--offwhite));
-  filter: drop-shadow(0.3rem 0.3rem 0.2rem var(--offblack));
+  background-color: #848B8E;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem var(--offblack));
   display: flex;
   flex-wrap: wrap;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
 }
 
 /* header */
@@ -54,7 +54,7 @@ header ul {
 }
 
 header li {
-  background-color: var(--dullblue);
+  background-color: var(--dullgreen);
   border: 0.05em solid var(--softgray);
   border-radius: 1em;
   padding: 0.1em 0.5em;
@@ -117,7 +117,7 @@ footer {
   font-size: 1.2em;
   text-decoration: none;
   color: var(--offwhite);
-  background-color: var(--dullblue);
+  background-color: var(--dullgreen);
   border: 0.05em solid var(--softgray);
   transition: border-color;
   border-radius: 1rem;
@@ -143,12 +143,46 @@ footer {
 }
 
 .home:last-child p {
-  font-family: 'Indie Flower', cursive;
-  margin-bottom: 0.5em;
+  font-family: 'Comforta';
+  padding: 0.5em;
+}
+.aboutUs {
+  displaY: flex;
+  margin: 0.5em, 0.5em;
+}
+.mftipInfo, .cltipInfo {
+  align-self: auto;
+  margin: 0.5em;
+}
+.mftipInfo:last-child p, .cltipInfo:last-child p {
+  padding: 0.5em 1em;
+}
+.aboutUs div {
+  width: 50%;
+  text-align: center;
 }
 
 /* ---------------------------------publicLogin.php-------------------------------- */
-
+.loginForm {
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--offwhite);
+  padding: 0.5em;
+  margin: 0.5em;
+}
+.loginForm:first-child h2 {
+  font-size: 2.5em;
+}
+.logincontainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+.logincontainer div {
+  padding: 0.5em;
+}
 /* ---------------------------------staffLogin.php--------------------------------- */
 
 /* -------------------------------- logout.php -------------------------------- */
@@ -166,6 +200,45 @@ footer {
   width: 40%;
   margin-bottom: 1.5em;
 }
+/* ---------------------------------managedForestPlan.php--------------------------------- */
+.queryForm {
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--offwhite);
+  padding-inline: 1em;
+  margin-block: 0.5em;
+}
+.queryForm h2 {
+  background-color: #f7caac;
+  width: fit-content;
+  padding: 1em;
+  margin-block: 1em;
+}
+.search div {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding-block: 0.5em;
+}
+.search div input { margin-bottom: 0.5em; }
+.searchResults { width: 70%; }
+.results {
+  height: 75%;
+  overflow: auto;
+}
+.resultsTable {
+  display: table;
+  width: 100%;
+}
+.resultsTable, .resultsTable th, .resultsTable td { 
+  border-collapse: collapse;
+  border: 0.1em solid #848B8E;
+  box-sizing: border-box;
+  padding: 0.5em; 
+}
+
 
 
 /* -------------------------------- CLTIP_home.php -------------------------------- */

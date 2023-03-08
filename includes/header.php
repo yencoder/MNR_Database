@@ -1,14 +1,14 @@
 <header>
-  <h1>Sign Up with Us&#33;</h1>
+  <h1>Ministry of Natural Resources and Forestry</h1>
   <nav>
     <ul>
-      <li><a href="stafflogin.php">Home</a></li>
+      <li><a href="home.php">Home</a></li>
       <?php
         // start session
         session_start();
         // session check for user information
         if (!isset($_SESSION['username'])) { ?>
-          <li><a href="staffLogin.php">Login</a></li>
+          <li><a href="publicLogin.php">Login</a></li>
       <?php
         } elseif(!isset($_SESSION['rollNumber'])) { ?>
           <li><a href="publicLogin.php">Login</a></li>

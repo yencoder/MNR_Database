@@ -9,7 +9,7 @@ if(isset($_COOKIE['mysitecookie'])) { $user=$_COOKIE['mysitecookie']; }
 // post submission
 if (isset($_POST['submit'])) {
   // connect to database
-  include 'includes/library.php';
+  include '../includes/library.php';
   $pdo = connectDB();
   // query for username
   $query = "select userid, username, password from users where username=?";  
@@ -35,14 +35,14 @@ if (isset($_POST['submit'])) {
 <html lang="en">
   <head>
     <?php $page_title = "Log in"; ?>
-    <?php include "includes/metadata.php" ?>
+    <?php include "../includes/metadata.php" ?>
   </head>
   <body class="logincreate">
-    <?php include 'includes/header.php';?>
+    <?php include '../includes/header.php';?>
     <section>
-      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off">
+      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off" class="loginForm">
         <h2>Log in</h2>
-        <div class="container">
+        <div class="logincontainer">
           <div>
             <label for="uname">Username</label>
             <input id ="uname" type="text" placeholder="Enter Username" name="uname" required value="<?=$user;?>">
@@ -63,6 +63,6 @@ if (isset($_POST['submit'])) {
         </div>    
       </form>
     </section>
-    <?php include "includes/footer.php" ?>
+    <?php include "../includes/footer.php" ?>
   </body>
 </html>
