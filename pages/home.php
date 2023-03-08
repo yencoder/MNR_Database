@@ -21,7 +21,6 @@
                     </div>
                 </section>
                 <a href="publicLogin.php"><button id="public" name="public">Public Login <i class="fas fa-pencil-alt"></i></button></a>
-                <a href="staffLogin.php"><button id="staff" name="staff">Staff Login <i class="fas fa-pencil-alt"></i></button></a>
             </section>
         </div>
         <?php include "../includes/footer.php" ?>

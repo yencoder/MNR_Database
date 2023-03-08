@@ -25,13 +25,14 @@ body {
 /* header & footer */
 header, footer {
   font-family: 'Arimo', sans-serif;
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--offblack);
   background-image: linear-gradient(to right, var(--bluetint), var(--offwhite));
-  filter: drop-shadow(0.3rem 0.3rem 0.2rem var(--offblack));
+  background-color: #848B8E;
+  filter: drop-shadow(0.2rem 0.2rem 0.1rem var(--offblack));
   display: flex;
   flex-wrap: wrap;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
 }
 /* header */
 header {
@@ -121,8 +122,6 @@ footer {
   width: 50%;
   text-align: center;
 }
-
-
 /* ---------------------------------publicLogin.php-------------------------------- */
 .loginForm {
   font-family: 'Comfortaa', cursive;
@@ -136,6 +135,14 @@ footer {
 .loginForm:first-child h2 {
   font-size: 2.5em;
 }
+.logincontainer {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+.logincontainer div {
+  padding: 0.5em;
+}
 /* ---------------------------------staffLogin.php--------------------------------- */
 
 /* -------------------------------- logout.php -------------------------------- */
@@ -148,4 +155,42 @@ footer {
 .logout button { 
   width:40%;
   margin-bottom: 1.5em;
+}
+/* ---------------------------------managedForestPlan.php--------------------------------- */
+.queryForm {
+  font-family: 'Comfortaa', cursive;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--offwhite);
+  padding-inline: 1em;
+  margin-block: 0.5em;
+}
+.queryForm h2 {
+  background-color: #f7caac;
+  width: fit-content;
+  padding: 1em;
+  margin-block: 1em;
+}
+.search div {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding-block: 0.5em;
+}
+.search div input { margin-bottom: 0.5em; }
+.searchResults { width: 70%; }
+.results {
+  height: 75%;
+  overflow: auto;
+}
+.resultsTable {
+  display: table;
+  width: 100%;
+}
+.resultsTable, .resultsTable th, .resultsTable td { 
+  border-collapse: collapse;
+  border: 0.1em solid #848B8E;
+  box-sizing: border-box;
+  padding: 0.5em; 
 }

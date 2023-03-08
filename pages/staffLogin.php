@@ -40,9 +40,9 @@ if (isset($_POST['submit'])) {
   <body class="logincreate">
     <?php include '../includes/header.php';?>
     <section>
-      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off">
+      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off" class="loginForm">
         <h2>Log in</h2>
-        <div class="container">
+        <div class="logincontainer">
           <div>
             <label for="uname">Username</label>
             <input id ="uname" type="text" placeholder="Enter Username" name="uname" required value="<?=$user;?>">
