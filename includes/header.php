@@ -8,10 +8,10 @@
         session_start();
         // session check for user information
         if (!isset($_SESSION['rollNumber'])) { ?>
-          <li><a href="publicLogin.php">Login</a></li>
+          <li><a href="publicLogin.php">Public Login</a></li>
       <?php
         } elseif(!isset($_SESSION['rollNumber'])) { ?>
-          <li><a href="publicLogin.php">Login</a></li>
+          <li><a href="publicLogin.php">Public Login</a></li>
       <?php 
         } else { ?>
           <li><a href="CLTIP_home.php">CLTIP</a></li>
@@ -26,5 +26,6 @@
   <?php if(isset($_SESSION['rollNumber'])) { ?>
     <li><a href="mftipPlan.php">MFTIP Plans</a></li>
     <li><a href="mftipPlanApprover.php">MFTIP Plan Approver</a></li>
+    <li><a href="mftipLandowner.php">MFTIP Landowner</a></li>
   <?php }?>
   </nav>
