@@ -37,7 +37,7 @@ $columnNames = array_keys($row[0]);
     <form class="queryForm" action= "" method="POST">
       <div class="search">
         <h2>Plans</h2>
-        <h3>Find a Managed Forest Plan</h3>
+        <h3>Find a Managed Forest Plan Approver</h3>
         <div>
           <label for="LO">By Landowner:</label>
           <input id ="LO" type="text" placeholder="First Name" name="LOFirstName" value="<?=$LOFirstName;?>">
