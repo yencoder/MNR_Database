@@ -21,15 +21,6 @@ $LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
   // get all the column names
   $columnNames = array_keys($row[0]);
 
-  var_dump($row);
-
-  foreach($stmt as $row):
-    var_dump($row);
-    foreach($row as $item):
-      var_dump($columnNames);
-    endforeach;
-  endforeach; 
-
   //$results = $stmt->execute([$user]);
   //var_dump($results);
 //}
@@ -76,13 +67,14 @@ $LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
               </tr>
             </thead>
             <tbody>
-              <?php foreach($stmt as $row):?>
+              <?php // get all the row data
+                foreach($row as $rowData):?>
                 <tr>
-                  <?php foreach($row as $item):?><td>
-                  <?php$item?></td>
-                  </tr>
+                  <?php foreach($rowData as $item):?>
+                    <td scope="row"><?=$item?></td>
                   <?php endforeach?>
-                <?php endforeach?>
+                </tr>
+              <?php endforeach?>
             </tbody>
           </table>
         </div>
