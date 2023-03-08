@@ -19,15 +19,20 @@ $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // get all the column names
 $columnNames = array_keys($row[0]);
 // post submission
-if (isset($_POST['searchPlanNumber']) && isset($_POST['planNumber'])) {
-  // query for results
+if (isset($_POST['searchPlanNumber'])) {
   $query = "select * from Accounts";
-  $stmt=$pdo->prepare($query);
-  $stmt->execute();
-  $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-  // get all the column names
-  $columnNames = array_keys($row[0]);
+  var_dump($query);
+  //header('refresh:0');
+} else if (isset($_POST['searchProperty']) && isset($_POST['property'])) {
+  $query = "select * from Accounts";
+  header('refresh:0');
 }
+// query for resulsts
+$stmt=$pdo->prepare($query);
+$stmt->execute();
+$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+// get all the column names
+$columnNames = array_keys($row[0]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
