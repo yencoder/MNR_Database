@@ -8,7 +8,6 @@
 </head>
 <body>
 <?php include '../includes/header.php';?>
-	<h1>CLTIP Program Search</h1>
 	<form action="search.php" method="post" class="queryForm">
 		<div class="search">
 			<label for="rollnumber">15-digit Roll Number:</label>

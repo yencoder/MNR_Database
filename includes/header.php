@@ -24,6 +24,7 @@
 <main>
 <nav class="mainNav">
   <?php if(isset($_SESSION['rollNumber'])) { ?>
+    <li><a href="CLTIP-Reconsideration.php">CLTIP Reconsideration</a></li>
     <li><a href="mftipPlan.php">MFTIP Plans</a></li>
     <li><a href="mftipPlanApprover.php">MFTIP Plan Approver</a></li>
     <li><a href="mftipLandowner.php">MFTIP Landowner</a></li>
