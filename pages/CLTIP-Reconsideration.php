@@ -4,34 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CLTIP Program Search</title>
-    <link rel="stylesheet" href="..\styles\styles.css" />
+    <link rel="stylesheet" href="../styles/master.css" />
 </head>
 <body>
 <?php include '../includes/header.php';?>
 	<h1>CLTIP Program Search</h1>
-	<form action="search.php" method="post">
-		<div class="label-input-group">
+	<form action="search.php" method="post" class="queryForm">
+		<div class="search">
 			<label for="rollnumber">15-digit Roll Number:</label>
 			<input type="text" id="rollnumber" name="rollnumber" placeholder="Enter Roll Number">
 		</div>
 
-		<div class="label-input-group">
+		<div class="search">
 			<label for="landowner">Landowner Name:</label>
 			<input type="text" id="landowner" name="landowner" placeholder="Enter Landowner Name">
             </div>
 
-<div class="label-input-group">
+<div class="search">
     <label for="pin">6-digit PIN:</label>
-    <input type="text" id="pin" name="pin" placeholder="Enter PIN">
+    <input type="text"  id="pin" name="pin" placeholder="Enter PIN">
 </div>
 
-<input type="submit" value="Search">
+<input class="button" type="submit" value="Search">
 </form>
 
-<div class="pending-requests">
+<div class="pending-requests" class="results">
 <h2>Pending Requests for Reconsideration</h2>
 
-<table>
+<table class="resultsTable">
     <thead>
         <tr>
             <th>arn</th>
@@ -115,10 +115,10 @@
 </table>
 
 </div>
-<div class="pending-requests">
+<div class="pending-requests" class="results">
 <h2>Completed Requests for Reconsideration</h2>
 
-<table>
+<table class="resultsTable">
     <thead>
         <tr>
             <th>arn</th>
