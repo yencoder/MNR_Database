@@ -11,16 +11,17 @@ if (isset($_POST['submit'])) {
   // connect to database
   include '../includes/library.php';
   $pdo = connectDB();
-  // query for username
+  // query for rollNumber & pin
   $query = "select rollNumber, pin from Contacts where rollNumber=?";  
   $stmt=$pdo->prepare($query);
   $results = $stmt->execute([$user]);
   if($row = $stmt->fetch()) {
     // if(password_verify($pass, $row['pin'])) {
     if($pass == $row['pin']) {
+      // start a session
       session_start();
-      $_SESSION['username'] = $user;
-      // $_SESSION['userid'] = $row['userid'];
+      // set up a session with the user's creditionals
+      $_SESSION['rollNumber'] = $user;
       header("Location: managedForestPlan.php");
       exit();
     }
