@@ -15,7 +15,7 @@
       <?php 
         } else { ?>
           <li><a href="CLTIP_home.php">CLTIP</a></li>
-          <li><a href="managedForestPlan.php">MFTIP</a></li>
+          <li><a href="mftipPlan.php">MFTIP</a></li>
           <li><a href="logout.php">Logout</a></li>
       <?php } ?>
     </ul>
