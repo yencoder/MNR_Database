@@ -180,9 +180,11 @@ footer {
   padding: 0.5em;
   margin: 0.5em;
 }
+
 .hidden {
   display: none;
 }
+
 .loginForm:first-child h2 {
   font-size: 2.5em;
 }
@@ -196,15 +198,18 @@ footer {
 .logincontainer div {
   padding: 0.5em;
 }
+
 /* -------------------------------- logout.php -------------------------------- */
 .logout h2 {
   margin: 0.5em auto;
 }
+
 .logout form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .logout button {
   width: 40%;
   margin-bottom: 1.5em;
@@ -247,6 +252,7 @@ footer {
   height: 75%;
   overflow: auto;
 }
+
 .resultsTable {
   display: table;
   width: 100%;
@@ -260,17 +266,21 @@ footer {
   box-sizing: border-box;
   padding: 0.5em;
 }
+
 /* -------------------------------- CLTIP_home.php -------------------------------- */
 .section-box {
   border: 1px solid black;
+  background-color: white;
   padding: 10px;
   margin: 10px 0;
 }
+
 .section-title {
   margin-top: 20px;
   font-size: 2em;
   margin-bottom: 20px;
 }
+
 .button {
   display: inline-block;
   padding: 10px 20px;
@@ -280,14 +290,17 @@ footer {
   text-decoration: none;
   color: #000;
 }
+
 .button:hover {
   background-color: #000;
   color: #fff;
 }
+
 /* -------------------------------- CLTIP_form.php -------------------------------- */
 .page-title {
   margin-top: 20px;
   font-size: 3em;
   margin-bottom: 20px;
 }
+
 /* ---------------------------------staffLogin.php--------------------------------- */
