@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="styles/master.css" />
 </head>
 <h1 class="page-title"> Conservation Land Tax Incentive Program</h1>
-<h1> 2023 Application</h1>
+<h1 class="section-title">2023 Application</h1>
 
 <br>
 2023 application PIN:<input type="text" id="PIN" name="PIN">
@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
 
 Assesment Roll Number:<input type="text" id="roll" name="roll">
 <br>
-<br>
+<h1 class="section-title">Property information</h1>
 Eligible Area:<input type="number" id="eArea" name="eArea">
 <br>
 <br>
@@ -109,6 +109,10 @@ Total area:<input type="number" id="tArea" name="tArea">
     <option value="ALS">ALS</option>
     <option value="ESH">ESH</option>
 </select>
+
+
+
+<h1 class="section-title">Owner Declaration - Refer to CLTIP Policy (below) before filling out this section</h1>
 <br>
 <br>
 <strong>*Types of Eligible Conservation Lands:</strong>
@@ -168,11 +172,11 @@ If signing on behalf of an estate or organization, indicate title:
     use of this information should be directed to the CLTIP Administor, MNRF 300 water Street, 5 South, Peterborough
     ON K9J 3C7, or 1-800-268-8959.
 </p>
-<h1>Frequent asked questions</h1>
-&#x2022 <a href="url">Click here for the CLTIP FAQs</a>
+<h1 class="paragraph-title">Frequent asked questions</h1>
+&#x2022 <a href="InsertFINALforEmailApplications.pdf">Click here for the CLTIP FAQs</a>
 
 
-<h1>Frequent asked questions</h1>
+<h1 class="paragraph-title">Frequent asked questions</h1>
 &#x2022 <a
     href="https://www.ontario.ca/page/conservation-land-tax-incentive-program-policy#:~:text=The%20Conservation%20Land%20Tax%20Incentive%20Program%20(%20CLTIP%20)%20replaced%20the%20Conservation,the%20payment%20of%20property%20tax.">Click
     here for the CLTIP policies</a>
