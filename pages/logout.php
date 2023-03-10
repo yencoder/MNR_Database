@@ -7,7 +7,7 @@ $_SESSION = array();
 session_destroy();
 if (isset($_POST["submit"])) {
   // redirect
-  header("Location: publicLogin.php");
+  header("Location: home.php");
   exit();
 }
 ?>
