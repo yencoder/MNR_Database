@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
   include '../includes/library.php';
   $pdo = connectDB();
   // query for rollNumber & pin
-  $query = "select rollNumber, pin from Contacts where rollNumber=?";  
+  $query = "select rollNumber, pin from accounts where rollNumber=?";  
   $stmt=$pdo->prepare($query);
   $results = $stmt->execute([$user]);
   if($row = $stmt->fetch()) {
