@@ -212,7 +212,6 @@ footer {
   box-sizing: border-box;
   padding: 0.5em;
 }
-
 /* -------------------------------- CLTIP_home.php -------------------------------- */
 .section-box {
   border: 1px solid black;
@@ -279,4 +278,11 @@ footer {
     background-color: #007399;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
+}
+
+/* -------------------------------- mftipPlan.php ---------------------------------- */
+.resultsTable thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--offwhite);
 }

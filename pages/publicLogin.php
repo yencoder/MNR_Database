@@ -13,6 +13,7 @@ if (isset($_POST['submit'])) {
   $pdo = connectDB();
   // query for rollNumber & pin
   $query = "select rollNumber, pin from accounts where rollNumber=?";  
+  $query = "select rollNumber, pin from accounts where rollNumber=?";  
   $stmt=$pdo->prepare($query);
   $results = $stmt->execute([$user]);
   if($row = $stmt->fetch()) {
