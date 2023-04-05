@@ -43,12 +43,12 @@ $columnNames = array_keys($row[0]);
           <input id ="LO" type="text" placeholder="First Name" name="LOFirstName" value="<?=$LOFirstName;?>">
           <input id ="LO" type="text" placeholder="Last Name" name="LOLastName" value="<?=$LOLastName;?>">
           <input id ="LO" type="text" placeholder="Business/Organization" name="LOOrg" value="<?=$LOOrg;?>">
-          <button type="submit" name="searchLO" value="Search">Search</button>
+          <button type="submit" name="searchLO" value="">Search</button>
         </div>
         <div>
           <label for="property">By Municipality:</label>
           <input id ="property" type="text" placeholder="15-digit roll number" name="property" value="<?=$property;?>">
-          <button type="submit" name="searchMunicipality" value="Search">Search</button>
+          <button type="submit" name="searchMunicipality" value="">Search</button>
         </div>
       </div>
       <div class= "searchResults">

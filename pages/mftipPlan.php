@@ -11,26 +11,46 @@ $LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
 include '../includes/library.php';
 $pdo = connectDB();
 // post submission
-if (isset($_POST['searchPlanNumber'])) {
-  $query = "select * from accounts where rollNumber = ?";
+if ($planNumber != null) {
+  $query = "select * from Parcel where PYP = ?";
   $stmt=$pdo->prepare($query);
   $stmt->execute([$planNumber]);
-} else if (isset($_POST['searchProperty'])) {
-  $query = "select * from Parcel";
+} else if ($property != null) {
+  $query = "select * from landowners where ARN = ?";
   $stmt=$pdo->prepare($query);
   $stmt->execute([$property]);
-} else if (isset($_POST['searchLO']))  {
-  $query = "select * from Municipality";
-  $stmt=$pdo->prepare($query);
-  $stmt->execute([$LOFirstName]);
+} else if (($LOFirstName != null) || ($LOLastName != null) || ($LOOrg != null))  {
+  if($LOFirstName != null) {
+    $query = "select * from accounts where firstName = ?";
+    $stmt=$pdo->prepare($query);
+    $stmt->execute([$LOFirstName]);
+  } else if ($LOLastName != null) {
+    $query = "select * from accounts where lastName = ?";
+    $stmt=$pdo->prepare($query);
+    $stmt->execute([$LOFirstName]);
+  } else if ($LOOrg != null) {
+    $query = "select * from Municipality where name = ?";
+    $stmt=$pdo->prepare($query);
+    $stmt->execute([$LOOrg]);
+  } else {
+    $query = "select * from Municipality";
+    $stmt=$pdo->prepare($query);
+    $stmt->execute();
+  }
 } else {
   // queury for default view from Parcels table
-  $query = "select * from Parcel";
+  $query = "select * from accounts";
   $stmt=$pdo->prepare($query);
   $stmt->execute();
 }
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // get all the column names
+if(sizeof($row) == 0) {
+  $query = "select * from accounts";
+  $stmt=$pdo->prepare($query);
+  $stmt->execute();
+  $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 $columnNames = array_keys($row[0]);
 ?>
 <!DOCTYPE html>
@@ -48,19 +68,19 @@ $columnNames = array_keys($row[0]);
         <div>
           <label for="planNumber">By Plan Number:</label>
           <input id ="planNumber" type="text" placeholder="5-digit plan number" name="planNumber" value="<?=$planNumber;?>">
-          <button type="submit" name="searchPlanNumber" value="Search">Search</button>
+          <button type="submit" name="searchPlanNumber" value="">Search</button>
         </div>
         <div>
           <label for="property">By Property:</label>
           <input id ="property" type="text" placeholder="15-digit roll number" name="property" value="<?=$property;?>">
-          <button type="submit" name="searchProperty" value="Search">Search</button>
+          <button type="submit" name="searchProperty" value="">Search</button>
         </div>
         <div>
           <label for="LO">By Landowner:</label>
           <input id ="LO" type="text" placeholder="First Name" name="LOFirstName" value="<?=$LOFirstName;?>">
           <input id ="LO" type="text" placeholder="Last Name" name="LOLastName" value="<?=$LOLastName;?>">
           <input id ="LO" type="text" placeholder="Business/Organization" name="LOOrg" value="<?=$LOOrg;?>">
-          <button type="submit" name="searchLO" value="Search">Search</button>
+          <button type="submit" name="searchLO" value="">Search</button>
         </div>
       </div>
       <div class= "searchResults">
