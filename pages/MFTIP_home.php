@@ -42,14 +42,14 @@ if (isset($_POST['rNumber'])) {
 <html lang="en">
 
 <head>
-    <?php $page_title = "CLTIP home"; ?>
+    <?php $page_title = "MFTIP home"; ?>
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css" />
 </head>
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <h1 class="page-title"> CLTIP</h1>
+    <h1 class="page-title"> MFTIP</h1>
     <section class="section-box">
         <h1 class="section-title">Search</h1>
 
@@ -75,7 +75,7 @@ if (isset($_POST['rNumber'])) {
     </section>
 
     <section class="section-box">
-        <h1 class="section-title">Find a CLTIP application:</h1>
+        <h1 class="section-title">Find a MFTIP application:</h1>
 
         <h2>PIN</h2> <!--I didn't find "first name last name fields so I kept it there-->
         <form method="POST">

@@ -22,9 +22,14 @@
   background-image: linear-gradient(to top left, var(--dullgreen), var(--offwhite) 110%);
   background-repeat: no-repeat;
 }
-body { padding: 1rem; }
+
+body {
+  padding: 1rem;
+}
+
 /* header & footer */
-header, footer {
+header,
+footer {
   font-family: 'Arimo', sans-serif;
   font-size: 2rem;
   color: var(--offblack);
@@ -35,18 +40,21 @@ header, footer {
   flex-wrap: wrap;
   border-radius: 0.2em;
 }
+
 /* header */
 header {
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
 }
+
 header ul {
   font-size: 1.5rem;
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
 }
+
 header li {
   background-color: var(--dullgreen);
   border: 0.05em solid var(--softgray);
@@ -54,12 +62,20 @@ header li {
   padding: 0.1em 0.5em;
   margin: 0em 0.2em;
 }
+
 header a {
   text-decoration: none;
   color: var(--offwhite);
 }
-header a:hover { color: greenyellow; }
-header a:active { color: hotpink; }
+
+header a:hover {
+  color: greenyellow;
+}
+
+header a:active {
+  color: hotpink;
+}
+
 .mainNav {
   display: flex;
   flex-direction: row;
@@ -72,21 +88,25 @@ header a:active { color: hotpink; }
   margin-top: 1em;
   padding-inline: 1em;
 }
+
 .mainNav li {
   margin-block: 0.5rem;
   margin-right: 0.5rem;
 }
+
 .mainNav li:hover {
   padding: 0.5rem;
-  color:darkslateblue;
+  color: darkslateblue;
   box-shadow: 0em 0em 0.2em;
 }
+
 /* footer */
 footer {
   font-size: 1rem;
   justify-content: center;
   padding: 0.2em;
 }
+
 /* -------------------------------- home.php -------------------------------- */
 .home {
   font-size: 1.2rem;
@@ -99,14 +119,26 @@ footer {
   padding: 1em;
   margin-bottom: 1em;
 }
+
 .home:first-child {
   align-items: center;
   padding: 1em 2em;
 }
-.home:first-child h2 { font-size: 2.5em; }
-.home:nth-child(2) h2 { font-size: 1.8em; }
-.home:nth-child(2) p { padding: 1em; }
-#public, #staff {
+
+.home:first-child h2 {
+  font-size: 2.5em;
+}
+
+.home:nth-child(2) h2 {
+  font-size: 1.8em;
+}
+
+.home:nth-child(2) p {
+  padding: 1em;
+}
+
+#public,
+#staff {
   font-size: 1.2em;
   text-decoration: none;
   color: var(--offwhite);
@@ -117,33 +149,50 @@ footer {
   padding: 1em 2.5em;
   margin: 1em 0em;
 }
-#public:hover, #staff:hover {
+
+#public:hover,
+#staff:hover {
   color: greenyellow;
   box-shadow: 0em 0em 0.2em;
 }
-#public:active, #staff:hover { color: hotpink; }
+
+#public:active,
+#staff:hover {
+  color: hotpink;
+}
+
 .home:last-child h2 {
   font-size: 2em;
   align-self: center;
   margin-bottom: 0.5em;
 }
+
 .home:last-child p {
   font-family: 'Comforta';
   padding: 0.5em;
 }
+
 .aboutUs {
   displaY: flex;
   margin: 0.5em, 0.5em;
 }
-.mftipInfo, .cltipInfo {
+
+.mftipInfo,
+.cltipInfo {
   align-self: auto;
   margin: 0.5em;
 }
-.mftipInfo:last-child p, .cltipInfo:last-child p { padding: 0.5em 1em; }
+
+.mftipInfo:last-child p,
+.cltipInfo:last-child p {
+  padding: 0.5em 1em;
+}
+
 .aboutUs div {
   width: 50%;
   text-align: center;
 }
+
 /* ---------------------------------publicLogin.php-------------------------------- */
 .loginForm {
   font-family: 'Comfortaa', cursive;
@@ -154,25 +203,41 @@ footer {
   padding: 0.5em;
   margin: 0.5em;
 }
-.hidden { display: none; }
-.loginForm:first-child h2 { font-size: 2.5em; }
+
+.hidden {
+  display: none;
+}
+
+.loginForm:first-child h2 {
+  font-size: 2.5em;
+}
+
 .logincontainer {
   display: flex;
   flex-direction: column;
   margin: 1em;
 }
-.logincontainer div { padding: 0.5em; }
+
+.logincontainer div {
+  padding: 0.5em;
+}
+
 /* -------------------------------- logout.php -------------------------------- */
-.logout h2 { margin: 0.5em auto; }
+.logout h2 {
+  margin: 0.5em auto;
+}
+
 .logout form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .logout button {
   width: 40%;
   margin-bottom: 1.5em;
 }
+
 /* ---------------------------------managedForestPlan.php--------------------------------- */
 .queryForm {
   font-family: 'Comfortaa', cursive;
@@ -183,20 +248,29 @@ footer {
   padding-inline: 1em;
   margin-bottom: 0.5em;
 }
+
 .queryForm h2 {
   background-color: #f7caac;
   width: fit-content;
   padding: 1em;
   margin-block: 1em;
 }
+
 .search div {
   display: flex;
   flex-direction: column;
   width: fit-content;
   padding-block: 0.5em;
 }
-.search div input { margin-bottom: 0.5em; }
-.searchResults { width: 70%; }
+
+.search div input {
+  margin-bottom: 0.5em;
+}
+
+.searchResults {
+  width: 70%;
+}
+
 .results {
   height: 75%;
   overflow: auto;
@@ -206,7 +280,10 @@ footer {
   display: table;
   width: 100%;
 }
-.resultsTable, .resultsTable th, .resultsTable td {
+
+.resultsTable,
+.resultsTable th,
+.resultsTable td {
   border-collapse: collapse;
   border: 0.1em solid #848B8E;
   box-sizing: border-box;
@@ -242,20 +319,39 @@ footer {
   color: #fff;
 }
 
-/* -------------------------------- CLTIP_form.php -------------------------------- */
+/* -------------------------------- forms -------------------------------- */
 .page-title {
   margin-top: 20px;
-  font-size: 3em;
+  font-size: 2em;
+  padding: 20px;
   margin-bottom: 20px;
 }
 
-/* ---------------------------------staffLogin.php--------------------------------- */
-.headingBig{
-    padding: 1.5em;
-    font-size: xx-large;
-  }
+.titlebox {
+  font-size: 1.2em;
+  line-height: 1.5;
+  color: #F2F2F2;
+  background-color: #333333;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #333333;
+}
 
-.headingSmall{
-    padding: 0.5em;
-    font-size: x-large;
-  }
+body {
+  font-size: 20px;
+}
+
+p {
+  padding: 20px;
+}
+
+/* ---------------------------------staffLogin.php--------------------------------- */
+.headingBig {
+  padding: 1.5em;
+  font-size: xx-large;
+}
+
+.headingSmall {
+  padding: 0.5em;
+  font-size: x-large;
+}
