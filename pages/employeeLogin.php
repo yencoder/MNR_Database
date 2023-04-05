@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
       session_start();
       // set up a session with the user's creditionals
       $_SESSION['rollNumber'] = $user;
-      header("Location: mftipPlan.php");
+      header("Location: CLTIP_home.php");
       exit();
     }
     else { $errors['login'] = true; }
@@ -36,14 +36,14 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <?php $page_title = "Log in"; ?>
+    <?php $page_title = "MNRF CLTIP & MFTIP Employee Login"; ?>
     <?php include "../includes/metadata.php" ?>
   </head>
   <body class="logincreate">
     <?php include '../includes/header.php';?>
     <section>
       <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" autocomplete="off" class="loginForm">
-        <h2>Public Login</h2>
+        <h2>MNRF Staff Login</h2>
         <div class="logincontainer">
           <div>
             <label for="rollNumber">Roll Number</label>

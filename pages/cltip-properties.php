@@ -93,7 +93,7 @@ $columnNames = !empty($row) ? array_keys($row[0]) : [];
 </head>
 
 <body>
-<?php include '../includes/header-cltip.php'; ?>
+<?php include '../includes/header.php'; ?>
     <section class="section-box">
         <h1 class="section-title">Find a Conservation Land Tax Incentive Program Property:</h1>
 

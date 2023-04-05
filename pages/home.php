@@ -24,7 +24,7 @@
                   // session check for user information
                   if (!isset($_SESSION['rollNumber'])) {?>
                     <a href="landowner-login.php"><button id="public" name="public">Public Login <i class="fas fa-pencil-alt"></i></button></a>
-                    <a href="employee-login.php"><button id="public" name="public">Employee Login <i class="fas fa-pencil-alt"></i></button></a>
+                    <a href="employeeLogin.php"><button id="public" name="public">Employee Login <i class="fas fa-pencil-alt"></i></button></a>
                     <a href="mfpa_login.php"><button id="public" name="public">MFPA Login<i class="fas fa-pencil-alt"></i></button></a>
                     <a href="MFPA_exam_registration.php"><button id="public" name="public">MFPA Exam <br> Registration<i class="fas fa-pencil-alt"></i></button></a>
                 <?php }?>

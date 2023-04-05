@@ -4,7 +4,6 @@ $errors = array();
 // get and sanitize each input
 $rNumber = trim(filter_var($_POST['rNumber'] ?? null, FILTER_SANITIZE_STRING));
 $landlordName = trim(filter_var($_POST['landlordNames'] ?? null, FILTER_SANITIZE_STRING));
-$plan = trim(filter_var($_POST['plan'] ?? null, FILTER_SANITIZE_STRING));
 // connect to database
 // connect to database
 include '../includes/library.php';
@@ -15,16 +14,16 @@ $query2 = "";
 // post submission
 if (isset($_POST['rNumber'])) {
     $rNumber = $_POST['rNumber'];
-    $query = "SELECT * FROM records WHERE program = 'CLTIP' AND ARN='" . $rNumber . "'";
+    $query = "SELECT * FROM records WHERE program = 'MFTIP' AND ARN='" . $rNumber . "'";
 } else if (isset($_POST['plan'])) {
     $plan = str_replace(' ', '', $_POST['plan']);
-    $query = "SELECT * FROM records WHERE program = 'CLTIP' AND Plan='" . $plan . "'";
+    $query = "SELECT * FROM records WHERE program = 'MFTIP' AND Plan='" . $plan . "'";
 } else if (isset($_POST['landlordName'])) {
     $landlordName = $_POST['landlordName'];
-    $query = "SELECT * FROM records WHERE program = 'CLTIP' AND (Owner LIKE '%" . $landlordName . "%' OR Owner LIKE '%" . $landlordName . "%')";
+    $query = "SELECT * FROM records WHERE program = 'MFTIP' AND (Owner LIKE '%" . $landlordName . "%' OR Owner LIKE '%" . $landlordName . "%')";
 } else {
     // query for default view from records table
-    $query = "SELECT * FROM records WHERE program = 'CLTIP'";
+    $query = "SELECT * FROM records WHERE program = 'MFTIP'";
 }
 // query for results
 $stmt = $pdo->prepare($query);
@@ -42,26 +41,72 @@ $columnNames = !empty($row) ? array_keys($row[0]) : [];
 <html lang="en">
 
 <head>
-    <?php $page_title = "Conservation Land Tax Incentive Program Records Search"; ?>
+    <?php $page_title = "Managed Forest Tax Incentive Program Records Search"; ?>
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css" />
+    <style>
+        .export-btn {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 12px 24px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background-color: #007399;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+.search-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #3C8C41;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+    </style>
 </head>
 
 <body>
-    <?php include '../includes/header.php'; ?>
+<?php include '../includes/header.php'; ?>
     <section class="section-box">
-        <h1 class="section-title">Find Conservation Land Tax Incentive Program Records by Property ARN Number:</h1>
+        <h1 class="section-title">Find Managed Forest Tax Incentive Program Plan:</h1>
 
     </section>
-    <section class="section-box">
 
-        <h1 class="section-title">Enter the ARN</h1>
-        <form class="search_form" method="POST">
-            ARN: <input type="text" name="rNumber" />
-            <input type="submit" value="search" />
-        </form>
-        <p>15-digits roll number</p>
-    </section>
+    <section class="section-box">
+    <h1 class="section-title">Search</h1>
+    <form class="search_form" method="POST">
+        Plan: <input type="text" name="plan" />
+        <input type="submit" value="search" class="search-btn"/>
+    </form>
+    <p>Plan number</p>
+</section>
+
 
     <section class="section-box">
         <h1 class="section-title">Search Results:</h1>
@@ -97,7 +142,7 @@ $columnNames = !empty($row) ? array_keys($row[0]) : [];
                 <form id="export_form" method="post" action="export_records.php">
         <input type="hidden" name="table_name" value="records" />
         <input type="hidden" name="query" value="<?= htmlentities($query) ?>" />
-        <button type="submit" name="export">Export Results as CSV</button>
+        <button type="submit" name="export" class="export-btn">Export Results as CSV</button>
     </form>
             </div>
         <?php } ?>

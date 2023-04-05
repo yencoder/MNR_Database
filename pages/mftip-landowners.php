@@ -92,20 +92,20 @@ $columnNames = !empty($row) ? array_keys($row[0]) : [];
 </head>
 
 <body>
-<?php include '../includes/mftip-header.php'; ?>
+<?php include '../includes/header.php'; ?>
+
     <section class="section-box">
-        <h1 class="section-title">Find Managed Forest Tax Incentive Program Plan:</h1>
+        <h1 class="section-title">Find Managed Forest Tax Incentive Program Landowner:</h1>
 
     </section>
-
     <section class="section-box">
-    <h1 class="section-title">Search</h1>
-    <form class="search_form" method="POST">
-        Plan: <input type="text" name="plan" />
-        <input type="submit" value="search" class="search-btn"/>
-    </form>
-    <p>Plan number</p>
-</section>
+
+        <h1 class="section-title">Find a landowner:</h1>
+        <form class="search_form" method="POST">
+            NAME: <input type="text" name="landlordName" />
+            <input type="submit" value="search" class="search-btn"/>
+        </form>
+    </section>
 
 
     <section class="section-box">

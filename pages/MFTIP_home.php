@@ -49,7 +49,6 @@ if (isset($_POST['rNumber'])) {
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <h1 class="page-title"> MFTIP</h1>
     <section class="section-box">
         <h1 class="section-title">Search</h1>
 
@@ -127,24 +126,36 @@ if (isset($_POST['rNumber'])) {
     </section>
 
     <section class="section-box">
+
         <h1 class="section-title">Work process:</h1>
+
         <div class="button-container">
-            <a href="https://loki.trentu.ca/~mnrf_project/pages/MPAC-lists.php" class="button">MPAC list</a>
-            <a href="https://loki.trentu.ca/~mnrf_project/pages/MFTIP-rfr.php" class="button">Requests for
-                Reconsideration</a>
-            <a href="#" class="button">Mailout</a>
-        </div>
-    </section>
+
+            <a href="MPAC_data.php" class="button">MPAC list</a>
+
+            <a href="MFTIP-rfr.php" class="button">Requests for Reconsideration</a>
+
+            <a href="annual-eligible-mftip.php" class="button">Annual eligible area updates</a>
+
+            </div>
+
+        </section>
+
     <section class="section-box">
+
         <h1 class="section-title">Records:</h1>
+
         <div class="button-container">
-            <a href="https://loki.trentu.ca/~mnrf_project/pages/MFPA_exam_registration.php" class="button">MFPA exam
-                registeration</a>
-            <a href="https://loki.trentu.ca/~mnrf_project/pages/CLTIP-Reconsideration.php" class="button">CLTIP
-                reconsideration</a>
-            <a href="https://loki.trentu.ca/~mnrf_project/pages/mftipLandowner.php" class="button">Landowners</a>
-        </div>
-    </section>
+
+            <a href="mftip-property.php" class="button">Properties</a>
+
+            <a href="mftip-plan.php" class="button">MFTIP applications</a>
+
+            <a href="mftip-landowners.php" class="button">Landowners</a>
+
+            </div>
+
+        </section>
     <?php include "../includes/footer.php" ?>
 
 </html>
