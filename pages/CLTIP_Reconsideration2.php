@@ -4,49 +4,46 @@ $errors = array();
 // get and sanitize each input
 $rNumber = trim(filter_var($_POST['rNumber'] ?? null, FILTER_SANITIZE_STRING));
 $landlordName = trim(filter_var($_POST['landlordNames'] ?? null, FILTER_SANITIZE_STRING));
-$businessName = trim(filter_var($_POST['businessName'] ?? null, FILTER_SANITIZE_STRING));
 $PIN = trim(filter_var($_POST['PIN'] ?? null, FILTER_SANITIZE_STRING));
-$LOOrg = trim(filter_var($_POST['LOOrg'] ?? null, FILTER_SANITIZE_STRING));
 // connect to database
 include '../includes/library.php';
 $pdo = connectDB();
 // post submission
 if (isset($_POST['rNumber'])) {
     $rNumber = $_POST['rNumber'];
-    $query = "SELECT * FROM Parcel WHERE ARN='" . $rNumber . "'";
-
+    $query = "SELECT * FROM pendingrfr WHERE ARN='" . $rNumber . "'";
 } else if (isset($_POST['landlordName'])) {
     $landlordName = $_POST['landlordName'];
-    $query = "SELECT * FROM Parcel WHERE Current_owner='" . $landlordName . "'";
-} else if (isset($_POST['businessName'])) {
-    $businessName = $_POST['businessName'];
-    $query = "SELECT * FROM Parcel WHERE Current_owner='" . $businessName . "'";
+    $query = "SELECT * FROM pendingrfr WHERE landowner='" . $landlordName . "'";
 } else if (isset($_POST['PIN'])) {
     $PIN = $_POST['PIN'];
-    $query = "SELECT * FROM Cltip_application WHERE PIN='" . $PIN . "'";
+    $query = "SELECT * FROM pendingrfr WHERE PIN='" . $PIN . "'";
 } else {
-    // queury for default view from Parcels table
-    $query = "select * from Parcel";
+    // queury for default view from pendingrfr table
+    $query = "select * from pendingrfr";
 }
+
 // query for results
 $stmt = $pdo->prepare($query);
 $stmt->execute();
+
+$hasEntries = $stmt->rowCount() > 0;
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // get all the column names
-$columnNames = array_keys($row[0]);
+$columnNames = !empty($row) ? array_keys($row[0]) : [];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php $page_title = "CLTIP home"; ?>
+    <?php $page_title = "CLTIP Program Search"; ?>
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css" />
 </head>
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <h1 class="section-title">CLTIP Home</h1>
     <section class="section-box">
         <h1 class="section-title">Search</h1>
 
@@ -65,9 +62,6 @@ $columnNames = array_keys($row[0]);
         <form method="POST">
             Name: <input type="text" name="landlordName" />
             <input type="submit" value="search" />
-
-            Business/Organization Name: <input type="text" name="businessName" />
-            <input type="submit" value="search" />
         </form>
     </section>
 
@@ -83,8 +77,12 @@ $columnNames = array_keys($row[0]);
     </section>
 
     <section class="section-box">
-        <h1 class="section-title">Search Results:</h1>
-        <h2>Search Results</h2>
+        <h1 class="section-title">Pending Requests for Reconsideration:</h1>
+        <?php
+    if (!$hasEntries) {
+        echo "<p>No entries found.</p>";
+    } else {
+    ?>
         <div class="results">
             <table class="resultsTable">
                 <thead>
@@ -110,25 +108,44 @@ $columnNames = array_keys($row[0]);
                 </tbody>
             </table>
         </div>
+        <?php } ?>
     </section>
 
+    <section class="section-box">
+        <h1 class="section-title">Completed Requests for Reconsideration:</h1>
+        <?php
+    if (!$hasEntries) {
+        echo "<p>No entries found.</p>";
+    } else {
+    ?>
+        <div class="results">
+            <table class="resultsTable">
+                <thead>
+                    <tr>
+                        <?php foreach ($columnNames as $column): ?>
+                            <th scope="col">
+                                <?= $column ?>
+                            </th>
+                        <?php endforeach; ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php // get all the row data
+                    foreach ($row as $rowData): ?>
+                        <tr>
+                            <?php foreach ($rowData as $item): ?>
+                                <td scope="row">
+                                    <?= $item ?>
+                                </td>
+                            <?php endforeach ?>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+        <?php } ?>
+    </section>
 
-    <section class="section-box">
-        <h1 class="section-title">Work process:</h1>
-        <div class="button-container">
-            <a href="MPAC_data.php" class="button">MPAC list</a>
-            <a href="CLTIP-rfr.php" class="button">Requests for Reconsideration</a>
-            <a href="annual-eligible-cltip.php" class="button">Annual eligible area updates</a>
-        </div>
-    </section>
-    <section class="section-box">
-        <h1 class="section-title">Records:</h1>
-        <div class="button-container">
-            <a href="cltip-properties.php" class="button">Properties</a>
-            <a href="cltip-plan.php" class="button">CLTIP applications</a>
-            <a href="cltip-landowners.php" class="button">Landowners</a>
-        </div>
-    </section>
     <?php include "../includes/footer.php" ?>
 
 </html>

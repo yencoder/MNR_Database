@@ -12,7 +12,7 @@ include '../includes/library.php';
 $pdo = connectDB();
 // post submission
 if (isset($_POST['searchLO'])) {
-  $query = "select * from Accounts";
+  $query = "select * from accounts";
 } else if (isset($_POST['searchMunicipality'])) {
   $query = "select * from Municipality";
 } else {

@@ -28,25 +28,19 @@ if (isset($_POST['rNumber'])) {
     // queury for default view from Parcels table
     $query = "select * from Parcel";
 }
-// query for results
-$stmt = $pdo->prepare($query);
-$stmt->execute();
-$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// get all the column names
-$columnNames = array_keys($row[0]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php $page_title = "CLTIP home"; ?>
+    <?php $page_title = "MFTIP home"; ?>
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css" />
 </head>
 
 <body>
-    <?php include '../includes/header.php'; ?>
-    <h1 class="section-title">CLTIP Home</h1>
+    <?php include '../includes/mftip-header.php'; ?>
+    <h1 class="section-title">MFTIP Home</h1>
     <section class="section-box">
         <h1 class="section-title">Search</h1>
 
@@ -72,7 +66,7 @@ $columnNames = array_keys($row[0]);
     </section>
 
     <section class="section-box">
-        <h1 class="section-title">Find a CLTIP application:</h1>
+        <h1 class="section-title">Find a MFTIP application:</h1>
 
         <h2>PIN</h2> <!--I didn't find "first name last name fields so I kept it there-->
         <form method="POST">
@@ -81,34 +75,47 @@ $columnNames = array_keys($row[0]);
             <p>5-digits pin</p>
         </form>
     </section>
+    <?php
+    // query for results
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
 
     <section class="section-box">
         <h1 class="section-title">Search Results:</h1>
         <h2>Search Results</h2>
         <div class="results">
-            <table class="resultsTable">
-                <thead>
-                    <tr>
-                        <?php foreach ($columnNames as $column): ?>
-                            <th scope="col">
-                                <?= $column ?>
-                            </th>
-                        <?php endforeach; ?>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php // get all the row data
-                    foreach ($row as $rowData): ?>
+            <?php if (empty($row)): ?>
+                <div class="no-results">No results found</div>
+            <?php else: ?>
+                <?php // get all the column names
+                    $columnNames = array_keys($row[0]);
+                    ?>
+                <table class="resultsTable">
+                    <thead>
                         <tr>
-                            <?php foreach ($rowData as $item): ?>
-                                <td scope="row">
-                                    <?= $item ?>
-                                </td>
-                            <?php endforeach ?>
+                            <?php foreach ($columnNames as $column): ?>
+                                <th scope="col">
+                                    <?= $column ?>
+                                </th>
+                            <?php endforeach; ?>
                         </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php // get all the row data
+                            foreach ($row as $rowData): ?>
+                            <tr>
+                                <?php foreach ($rowData as $item): ?>
+                                    <td scope="row">
+                                        <?= $item ?>
+                                    </td>
+                                <?php endforeach ?>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
         </div>
     </section>
 
@@ -117,16 +124,17 @@ $columnNames = array_keys($row[0]);
         <h1 class="section-title">Work process:</h1>
         <div class="button-container">
             <a href="MPAC_data.php" class="button">MPAC list</a>
-            <a href="CLTIP-rfr.php" class="button">Requests for Reconsideration</a>
-            <a href="annual-eligible-cltip.php" class="button">Annual eligible area updates</a>
+            <a href="MFTIP-rfr.php" class="button">Requests for
+                Reconsideration</a>
+            <a href="annual-eligible-mftip.php" class="button">Annual eligible area updates</a>
         </div>
     </section>
     <section class="section-box">
         <h1 class="section-title">Records:</h1>
         <div class="button-container">
-            <a href="cltip-properties.php" class="button">Properties</a>
-            <a href="cltip-plan.php" class="button">CLTIP applications</a>
-            <a href="cltip-landowners.php" class="button">Landowners</a>
+            <a href="miftip-property.php" class="button">Properties</a>
+            <a href="miftip-plan.php" class="button">MFTIP applications</a>
+            <a href="miftip-landowners.php" class="button">Landowners</a>
         </div>
     </section>
     <?php include "../includes/footer.php" ?>

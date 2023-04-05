@@ -1,19 +1,9 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "mnrf";
+include '../includes/library.php';
+$pdo = connectDB();
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT plan_number, approved_by, plan_start_date, plan_end_date, progress_report_due, renewal_plan_due FROM parcel WHERE id = 1";
-$result = mysqli_query($conn, $sql);
+$sql = "SELECT plan_number, approved_by, plan_start_date, plan_end_date, progress_report_due, renewal_plan_due FROM parcel";
+$result = mysqli_query($sql);
 
 if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
