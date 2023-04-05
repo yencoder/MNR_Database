@@ -13,16 +13,16 @@ $query2 = "";
 // post submission
 if (isset($_POST['rNumber'])) {
     $rNumber = $_POST['rNumber'];
-    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Active'";
-    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Completed'";
+    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Active'";
+    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Completed'";
 } else if (isset($_POST['landlordName'])) {
     $landlordName = $_POST['landlordName'];
-    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Active'";
-    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Completed'";
+    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Active'";
+    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Completed'";
 } else {
     // query for default view from pendingrfr table
-    $query = "select * from appeal_parcels2 where program = 'CLTIP - Conservation Land Tax Incentive Program' AND Status='Active' ";
-    $query2 = "select * from appeal_parcels2 where program = 'CLTIP - Conservation Land Tax Incentive Program' AND Status='Completed' ";
+    $query = "select * from appeal_parcels2 where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Active' ";
+    $query2 = "select * from appeal_parcels2 where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Completed' ";
 }
 
 // query for results
@@ -46,6 +46,16 @@ if (!empty($query2)) {
     $hasCompletedEntries = false;
 }
 
+
+// // Perform a separate query for the completedrfr table
+// $queryCompleted = str_replace('appeal_parcels2', 'appeal_parcels2', $query2); // Edited
+// $stmtCompleted = $pdo->prepare($queryCompleted); // Edited
+// $stmtCompleted->execute(); // Edited
+
+// // check if there are any rows returned by the completedrfr query
+// $hasCompletedEntries = $stmtCompleted->rowCount() > 0; // Edited
+// $completedRow = $stmtCompleted->fetchAll(PDO::FETCH_ASSOC); // Edited
+
 // get all the column names
 $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
 ?>
@@ -53,15 +63,15 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
 <html lang="en">
 
 <head>
-    <?php $page_title = "Conservation Land Tax Incentive Program Search"; ?>
+    <?php $page_title = "Managed Forest Tax Incentive Program Program Search"; ?>
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css" />
 </head>
 
 <body>
-    <?php include '../includes/mftip-header.php'; ?>
+    <?php include '../includes/header.php'; ?>
     <section class="section-box">
-    <h1 class="section-title">Find a CLTIP - Conservation Land Tax Incentive Program application:</h1>
+    <h1 class="section-title">Find a Managed Forest Tax Incentive Program application:</h1>
 
     </section>
     <section class="section-box">

@@ -2,13 +2,11 @@
   <h1>Ministry of Natural Resources and Forestry</h1>
   <nav>
     <ul>
-      <li><a href="home.php">Home</a></li>
+      <li><a href="MFTIP_home.php"> MFTIP Home</a></li>
       <?php
-        // start session
-        session_start();
         // session check for user information
         if (!isset($_SESSION['rollNumber'])) { ?>
-          <li><a href="landowner-login.php">Public Login</a></li>
+          <li><a href="publicLogin.php">Public Login</a></li>
       <?php
         } elseif(!isset($_SESSION['rollNumber'])) { ?>
           <li><a href="publicLogin.php">Public Login</a></li>

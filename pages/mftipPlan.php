@@ -12,18 +12,23 @@ include '../includes/library.php';
 $pdo = connectDB();
 // post submission
 if (isset($_POST['searchPlanNumber'])) {
-  $query = "select * from Accounts";
+  $query = "select * from accounts where rollNumber = ?";
+  $stmt=$pdo->prepare($query);
+  $stmt->execute([$planNumber]);
 } else if (isset($_POST['searchProperty'])) {
   $query = "select * from Parcel";
+  $stmt=$pdo->prepare($query);
+  $stmt->execute([$property]);
 } else if (isset($_POST['searchLO']))  {
   $query = "select * from Municipality";
+  $stmt=$pdo->prepare($query);
+  $stmt->execute([$LOFirstName]);
 } else {
   // queury for default view from Parcels table
   $query = "select * from Parcel";
+  $stmt=$pdo->prepare($query);
+  $stmt->execute();
 }
-// query for results
-$stmt=$pdo->prepare($query);
-$stmt->execute();
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // get all the column names
 $columnNames = array_keys($row[0]);

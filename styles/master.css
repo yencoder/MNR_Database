@@ -289,7 +289,6 @@ footer {
   box-sizing: border-box;
   padding: 0.5em;
 }
-
 /* -------------------------------- CLTIP_home.php -------------------------------- */
 .section-box {
   border: 1px solid black;
@@ -351,7 +350,35 @@ p {
   font-size: xx-large;
 }
 
-.headingSmall {
-  padding: 0.5em;
-  font-size: x-large;
+.headingSmall{
+    padding: 0.5em;
+    font-size: x-large;
+  }
+  .export-btn {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 12px 24px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background-color: #007399;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* -------------------------------- mftipPlan.php ---------------------------------- */
+.resultsTable thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--offwhite);
 }

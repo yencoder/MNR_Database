@@ -13,16 +13,16 @@ $query2 = "";
 // post submission
 if (isset($_POST['rNumber'])) {
     $rNumber = $_POST['rNumber'];
-    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Active'";
-    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Completed'";
+    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Active'";
+    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Completed'";
 } else if (isset($_POST['landlordName'])) {
     $landlordName = $_POST['landlordName'];
-    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Active'";
-    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'CLTIP - Conservation Land Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Completed'";
+    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Active'";
+    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Completed'";
 } else {
     // query for default view from pendingrfr table
-    $query = "select * from appeal_parcels2 where program = 'CLTIP - Conservation Land Tax Incentive Program' AND Status='Active' ";
-    $query2 = "select * from appeal_parcels2 where program = 'CLTIP - Conservation Land Tax Incentive Program' AND Status='Completed' ";
+    $query = "select * from appeal_parcels2 where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Active' ";
+    $query2 = "select * from appeal_parcels2 where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Completed' ";
 }
 
 // query for results
@@ -53,15 +53,60 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
 <html lang="en">
 
 <head>
-    <?php $page_title = "Conservation Land Tax Incentive Program Search"; ?>
+    <?php $page_title = "Managed Forest Tax Incentive Program Program Search"; ?>
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css" />
+    <style>
+        .export-btn {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 12px 24px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.export-btn:hover {
+    background-color: #007399;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+.search-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #3C8C41;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+    </style>
 </head>
 
 <body>
-    <?php include '../includes/mftip-header.php'; ?>
+<?php include '../includes/mftip-header.php'; ?>
     <section class="section-box">
-    <h1 class="section-title">Find a CLTIP - Conservation Land Tax Incentive Program application:</h1>
+    <h1 class="section-title">Find a Managed Forest Tax Incentive Program application:</h1>
 
     </section>
     <section class="section-box">
@@ -69,7 +114,7 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
         <h1 class="section-title">Search</h1>
         <form class="search_form" method="POST">
             ARN: <input type="text" name="rNumber" />
-            <input type="submit" value="search" />
+            <input type="submit" value="search" class="search-btn"/>
         </form>
         <p>15-digits roll number</p>
     </section>
@@ -79,7 +124,7 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
         <h1 class="section-title">Find a landowner:</h1>
         <form class="search_form" method="POST">
             NAME: <input type="text" name="landlordName" />
-            <input type="submit" value="search" />
+            <input type="submit" value="search" class="search-btn"/>
         </form>
     </section>
 
@@ -118,7 +163,7 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
             <form id="pending_export_form" method="post" action="exportRough.php">
     <input type="hidden" name="table_name" value="appeal_parcels2" />
     <input type="hidden" name="query" value="<?= htmlentities($query) ?>" />
-    <button type="submit" name="export_pending">Export Pending Requests as CSV</button>
+    <button type="submit" name="export_pending" class="export-btn">Export Pending Requests as CSV</button>
 </form>
 
 
@@ -161,7 +206,7 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
             <form id="completed_export_form" method="post" action="exportRough.php">
     <input type="hidden" name="table_name" value="appeal_parcels2" />
     <input type="hidden" name="query" value="<?= htmlentities($queryCompleted) ?>" />
-    <button type="submit" name="export_completed">Export Completed Requests as CSV</button>
+    <button type="submit" name="export_completed" class="export-btn">Export Completed Requests as CSV</button>
 </form>
         </div>
         <?php } ?>
