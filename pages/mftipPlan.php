@@ -16,7 +16,7 @@ if ($planNumber != null) {
   $stmt=$pdo->prepare($query);
   $stmt->execute([$planNumber]);
 } else if ($property != null) {
-  $query = "select * from landowners where ARN = ?";
+  $query = "select * from landowners outter join accounts on ARN = accounts.rollNumber where ARN = ?";
   $stmt=$pdo->prepare($query);
   $stmt->execute([$property]);
 } else if (($LOFirstName != null) || ($LOLastName != null) || ($LOOrg != null))  {
