@@ -7,12 +7,12 @@ include '../includes/library.php';
 $pdo = connectDB();
 
 // query for results of the current year
-$queryYear = "SELECT * FROM plans2 WHERE YEAR(`EA Approved On`) = '$currentYear'";
+$queryYear = "SELECT * FROM plans WHERE YEAR(`EA Approved On`) = '$currentYear'";
 $stmtYear = $pdo->prepare($queryYear);
 $stmtYear->execute();
 
 // query for results of the current month
-$queryMonth = "SELECT * FROM plans2 WHERE YEAR(`EA Approved On`) = '$currentYear' AND MONTH(`EA Approved On`) = '$currentMonth'";
+$queryMonth = "SELECT * FROM plans WHERE YEAR(`EA Approved On`) = '$currentYear' AND MONTH(`EA Approved On`) = '$currentMonth'";
 $stmtMonth = $pdo->prepare($queryMonth);
 $stmtMonth->execute();
 
