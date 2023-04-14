@@ -8,10 +8,10 @@ $pdo = connectDB();
 
 // query for results of the current year
 $queryYear = "SELECT EAU.*, MFTIP.program_name
-FROM EligibleAreaUpdates EAU
-JOIN MFTIP ON EAU.ARN = MFTIP.ARN
-WHERE YEAR(EAU.updated_at) = '$currentYear'
-AND MFTIP.program_name = 'MFTIP'";
+              FROM EligibleAreaUpdates EAU
+              JOIN MFTIP ON EAU.ARN = MFTIP.ARN
+              WHERE YEAR(EAU.updated_at) = '$currentYear'
+              AND MFTIP.program_name = 'MFTIP'";
 $stmtYear = $pdo->prepare($queryYear);
 $stmtYear->execute();
 $stmtYear = $pdo->prepare($queryYear);

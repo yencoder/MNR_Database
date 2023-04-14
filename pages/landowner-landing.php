@@ -135,7 +135,7 @@ $landowner = $stmt->fetch(PDO::FETCH_ASSOC);
                     <br>
                     <div class="buttons">
                     <h1 class="mfpa-con">Planning Template form:</h1>
-                        <a href="pdf forms\Planning-Template.pdf" target="_blank" class="download-button">Download Plan Form (PDF)</a>
+                        <a href="../forms/Planning-Template.pdf" target="_blank" class="download-button">Download Plan Form (PDF)</a>
                     </div>
                     <br>
                     <div>
