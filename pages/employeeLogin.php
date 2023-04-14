@@ -16,8 +16,9 @@ if (isset($_POST['submit'])) {
   $stmt=$pdo->prepare($query);
   $results = $stmt->execute([$user]);
   if($row = $stmt->fetch()) {
-    // if(password_verify($pass, $row['pin'])) {
-    if($pass == $row['password']) {
+    var_dump($row['password']);
+    if(password_verify($pass, $row['password'])) {
+    //if($pass == $row['password']) {
       // start a session
       session_start();
       // set up a session with the user's creditionals

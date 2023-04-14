@@ -382,3 +382,7 @@ p {
   top: 0;
   background-color: var(--offwhite);
 }
+/* -------------------------------- forgotPassword.php ---------------------------------- */
+.passwordErrors {
+  color: red;
+}

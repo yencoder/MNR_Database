@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
   // connect to the database
   $pdo = connectDB();
   // check creditionals
-  $query = "SELECT email, `password` FROM `users` WHERE email=?";
+  $query = "select email, password from `employees` WHERE email=?";
   $stmt = $pdo->prepare($query);
   $stmt->execute([$email]);
   $results = $stmt->fetch();
@@ -48,7 +48,7 @@ if (isset($_POST['submit'])) {
   if(!sizeof($errors)) {
     // insert creditionals into the database
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "UPDATE users SET `password` = ? WHERE email = ?";
+    $query = "UPDATE employees SET `password` = ? WHERE email = ?";
     $stmt = $pdo->prepare($query)->execute([$password, $email]);
     // redirect
     header("Location: home.php");
@@ -63,15 +63,17 @@ if (isset($_POST['submit'])) {
     <?php include "../includes/metadata.php" ?>
     <link rel="stylesheet" href="styles/master.css"/>
   </head>
-  <body class="logincreate">
+  <body>
     <?php include '../includes/header.php';?>
     <section>
-      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST">
+      <form action="<?=htmlentities($_SERVER['PHP_SELF'])?>" method="POST" class="loginForm">
         <h2>Reset Password</h2>
-        <div class="container">
+        <div class="logincontainer">
           <div>
             <label for="email"><b>Your email</b></label>
             <input id = "email" type="text" placeholder="Email" name="email" value="<?=$email?>">
+          </div>
+          <div class="passwordErrors">
             <span class="error <?=!isset($errors['emptyEmail']) ? 'hidden' : "";?>">Please enter an email</span>
             <span class="error <?=!isset($errors['incorrectEmail']) ? 'hidden' : "";?>">Please use a valid email address</span>
             <span class="error <?=!isset($errors['emailDoesNotExist']) ? 'hidden' : "";?>">Email does not exist</span>
@@ -79,17 +81,23 @@ if (isset($_POST['submit'])) {
           <div>
             <label for="password"><b>Enter a password</b></label>
             <input id="password" type="password" placeholder="Password" name="password" autocomplete="new-password">
-            <span class="error <?=!isset($errors['emptyPassword']) ? 'hidden' : "";?>">Please enter a new password</span>
-            <span class="error <?=!isset($errors['passwordCharsUpper']) ? 'hidden' : "";?>">Password must contain at least 1 upper case letter</span>
-            <span class="error <?=!isset($errors['passwordCharsLower']) ? 'hidden' : "";?>">Password must contain at least 1 lower case letter</span>
-            <span class="error <?=!isset($errors['passwordCharsNumber']) ? 'hidden' : "";?>">Password must contain at least 1 number</span>
-            <span class="error <?=!isset($errors['passwordCharsSpecial']) ? 'hidden' : "";?>">Password must contain at least 1 special character</span>
-            <span class="error <?=!isset($errors['passwordLength']) ? 'hidden' : "";?>">Password must be longer than 8 characters</span>
-            <span class="error <?=!isset($errors['oldPassword']) ? 'hidden' : "";?>">Cannot use previously used passwords</span>
+          </div>
+          <div class="passwordErrors">
+            <ul>
+              <li><span class="error <?=!isset($errors['emptyPassword']) ? 'hidden' : "";?>">Please enter a new password</span></li>
+              <li><span class="error <?=!isset($errors['passwordCharsUpper']) ? 'hidden' : "";?>">Password must contain at least 1 upper case letter</span></li>
+              <li><span class="error <?=!isset($errors['passwordCharsLower']) ? 'hidden' : "";?>">Password must contain at least 1 lower case letter</span></li>
+              <li><span class="error <?=!isset($errors['passwordCharsNumber']) ? 'hidden' : "";?>">Password must contain at least 1 number</span></li>
+              <li><span class="error <?=!isset($errors['passwordCharsSpecial']) ? 'hidden' : "";?>">Password must contain at least 1 special character</span></li>
+              <li><span class="error <?=!isset($errors['passwordLength']) ? 'hidden' : "";?>">Password must be longer than 8 characters</span></li>
+              <li><span class="error <?=!isset($errors['oldPassword']) ? 'hidden' : "";?>">Cannot use previously used passwords</span></li>
+            </ul>
           </div>
           <div>
             <label for="confirmPassword"><b>Confirm password</b></label>
             <input id="confirmPassword" type="password" placeholder="Repeat Password" name="confirmPassword">
+          </div>
+          <div class="passwordErrors">
             <span class="error <?=!isset($errors['confirmPassword']) ? 'hidden' : "";?>">Passwords do not match</span>
           </div>
           <div>

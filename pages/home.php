@@ -22,7 +22,7 @@
                 </section>
                 <?php
                   // session check for user information
-                  if (!isset($_SESSION['rollNumber'])) {?>
+                  if (!isset($_SESSION['email'])) {?>
                     <a href="landowner-login.php"><button id="public" name="public">Public Login <i class="fas fa-pencil-alt"></i></button></a>
                     <a href="employeeLogin.php"><button id="public" name="public">Employee Login <i class="fas fa-pencil-alt"></i></button></a>
                     <a href="mfpa_login.php"><button id="public" name="public">MFPA Login<i class="fas fa-pencil-alt"></i></button></a>
