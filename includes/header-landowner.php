@@ -3,7 +3,7 @@
   <nav>
     <ul>
       <li><a href="home.php">Home</a></li>
-      <li><a href="logout.php">Logout</a></li>
+      <li><a href="landowner-login.php">Public Login</a></li>
     </ul>
   </nav>
 </header>

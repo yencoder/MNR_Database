@@ -99,7 +99,7 @@ $landowner = $stmt->fetch(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php include '../includes/header-landowner.php'; ?>
+    <?php include '../includes/header_mfpa.php'; ?>
 
     <main>
         <section>
