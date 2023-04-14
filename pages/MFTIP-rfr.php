@@ -13,16 +13,16 @@ $query2 = "";
 // post submission
 if (isset($_POST['rNumber'])) {
     $rNumber = $_POST['rNumber'];
-    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Active'";
-    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Completed'";
+    $query = "SELECT * FROM appeal_parcels WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Active'";
+    $query2 = "SELECT * FROM appeal_parcels WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND ARN='" . $rNumber . "' AND Status='Completed'";
 } else if (isset($_POST['landlordName'])) {
     $landlordName = $_POST['landlordName'];
-    $query = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Active'";
-    $query2 = "SELECT * FROM appeal_parcels2 WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Completed'";
+    $query = "SELECT * FROM appeal_parcels WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Active'";
+    $query2 = "SELECT * FROM appeal_parcels WHERE program = 'MFTIP-Managed Forest Tax Incentive Program' AND Owner='" . $landlordName . "' AND Status='Completed'";
 } else {
     // query for default view from pendingrfr table
-    $query = "select * from appeal_parcels2 where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Active' ";
-    $query2 = "select * from appeal_parcels2 where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Completed' ";
+    $query = "select * from appeal_parcels where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Active' ";
+    $query2 = "select * from appeal_parcels where program = 'MFTIP-Managed Forest Tax Incentive Program' AND Status='Completed' ";
 }
 
 // query for results
@@ -35,7 +35,7 @@ $pendingRow = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Perform a separate query for the completedrfr table
 if (!empty($query2)) {
-    $queryCompleted = str_replace('appeal_parcels2', 'appeal_parcels2', $query2);
+    $queryCompleted = str_replace('appeal_parcels', 'appeal_parcels', $query2);
     $stmtCompleted = $pdo->prepare($queryCompleted);
     $stmtCompleted->execute();
 
@@ -161,7 +161,7 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
                 </tbody>
             </table>
             <form id="pending_export_form" method="post" action="exportRough.php">
-    <input type="hidden" name="table_name" value="appeal_parcels2" />
+    <input type="hidden" name="table_name" value="appeal_parcels" />
     <input type="hidden" name="query" value="<?= htmlentities($query) ?>" />
     <button type="submit" name="export_pending" class="export-btn">Export Pending Requests as CSV</button>
 </form>
@@ -204,7 +204,7 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
                 </tbody>
             </table>
             <form id="completed_export_form" method="post" action="exportRough.php">
-    <input type="hidden" name="table_name" value="appeal_parcels2" />
+    <input type="hidden" name="table_name" value="appeal_parcels" />
     <input type="hidden" name="query" value="<?= htmlentities($queryCompleted) ?>" />
     <button type="submit" name="export_completed" class="export-btn">Export Completed Requests as CSV</button>
 </form>
@@ -223,8 +223,8 @@ $columnNames = !empty($pendingRow) ? array_keys($pendingRow[0]) : []; // Edited
 
     searchParams = new URLSearchParams([...new FormData(searchForms[0]), ...new FormData(searchForms[1])]);
 
-    pendingExportForm.action = 'exportRough.php?' + searchParams.toString() + '&table_name=appeal_parcels2&status=Active';
-    completedExportForm.action = 'exportRough.php?' + searchParams.toString() + '&table_name=appeal_parcels2&status=Completed';
+    pendingExportForm.action = 'exportRough.php?' + searchParams.toString() + '&table_name=appeal_parcels&status=Active';
+    completedExportForm.action = 'exportRough.php?' + searchParams.toString() + '&table_name=appeal_parcels&status=Completed';
 }
 
 function onFormSubmit(e) {
