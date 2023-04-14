@@ -7,7 +7,7 @@
         // start session
         session_start();
         // session check for user information
-        if (!isset($_SESSION['rollNumber'])) { ?>
+        if (!isset($_SESSION['email'])) { ?>
           <li><a href="landowner-login.php">Public Login</a></li>
       <?php 
         } else { ?>
@@ -20,7 +20,7 @@
 </header>
 <main>
 <nav class="mainNav">
-  <?php if(isset($_SESSION['rollNumber'])) { ?>
+  <?php if(isset($_SESSION['email'])) { ?>
     <li><a href="CLTIP_home.php">CLTIP Home</a></li>
     <li><a href="CLTIP-rfr.php">CLTIP Reconsideration</a></li>
     <li><a href="MFTIP_home.php">MFTIP Home</a></li>
