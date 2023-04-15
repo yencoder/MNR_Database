@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 14, 2023 at 03:08 PM
+-- Generation Time: Apr 15, 2023 at 05:14 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.1.16
 
@@ -208,7 +208,7 @@ CREATE TABLE `CLTIP` (
 --
 
 INSERT INTO `CLTIP` (`program_name`, `ARN`) VALUES
-('CLTIP', 100200000000011),
+('CLTIP', 10100600133000),
 ('CLTIP', 100200000000012),
 ('CLTIP', 100200000000013),
 ('CLTIP', 100200000000014),
@@ -412,9 +412,9 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`username`, `password`, `first_name`, `last_name`, `email`, `department`) VALUES
-('jdoe', 'jdoe', 'John', 'Doe', 'johndoe@example.com', 'CLTIP'),
-('jsmith', 'jsmith', 'Jane', 'Smith', 'janesmith@example.com', 'MFTIP'),
-('rwilliams', 'rwilliams', 'Robert', 'Williams', 'robertwilliams@example.com', 'CLTIP');
+('jdoe', '$2y$10$lkvuUaMQ5K6wSVmZSAMxduFvhzwE5lfOP8CCZQbgJn4fh6cSUWLWe', 'John', 'Doe', 'admin@example.com', 'MFTIP'),
+('jsmith', '$2y$10$kz62LjL6R9y8KriSrXLTUuOK8pM88FL5ahsCTpcOdGV2yExrTyuwe', 'Jane', 'Smith', 'IT.support@example.com', 'CLTIP'),
+('rwilliams', '$2y$10$IwDaVKYh9VJDtMn93CoUl.GoH/Haal5gRue6tCoRR7cGSYx9KrW1i', 'Robert', 'Williams', 'assistant@example.com', 'CLTIP');
 
 -- --------------------------------------------------------
 
@@ -440,8 +440,9 @@ CREATE TABLE `exam_candidates` (
 INSERT INTO `exam_candidates` (`id`, `first_name`, `last_name`, `email`, `phone`, `sin`, `password`, `address`) VALUES
 (24, 'Amber', 'Ahmed', 'amberahmed@trentu.ca', '7058081263', '143255276567', '$2y$10$Whvsg1I3fxhx8Pt0uWvvJOvZQxzXRvcg9l/UTfKLvBL6XETbDq8xq', '359 Hunter Street West'),
 (28, 'dev', 'test', 'ccrasto@trentu.ca', '349543435', '1321324213432', '$2y$10$tgKcoDTtOjC5rzijFZuNpeaoK.9koW1jQSqlmy13rEeQ7/zi.OlYi', '359 Hunter Street West'),
-(30, 'fdsa', 'adf', 'ajadshla@gmsds.com', 'fdsa', 'asdf', '$2y$10$zAqYh.LPYH3aKaHbsJzPwuXuuzWHQOUxW1MObiwaUSiXVUVgIVf/W', 'dsaf'),
-(34, 'SDFd', 'sdafd', 'askdufhd@gmail.com', '124314', '1214345', '$2y$10$HGFDeiqfByomzuyWqL45yeF9uO/sdrhGhcbf5Snd424Is3P2Zsvwa', 'aregfgf');
+(34, 'SDFd', 'sdafd', 'askdufhd@gmail.com', '124314', '1214345', '$2y$10$HGFDeiqfByomzuyWqL45yeF9uO/sdrhGhcbf5Snd424Is3P2Zsvwa', 'aregfgf'),
+(35, 'admin', 'admin', 'admin@admin.admin', '111-111-1111', '1234', '$2y$10$N6KXjKyIF0yIaY/lg1ticeYIuj/Mr2Q0vc.Hgp9hr/2TReOFIVnAS', 'admin street'),
+(36, 'f', 'l', 'example@exam.com', '2222222222', '1234567', '$2y$10$4JeVegRGPckUweAzY9dGIuntzZrSwx3aMDutbWfjy9MAletFnE2A6', '555 madeup straight');
 
 -- --------------------------------------------------------
 
@@ -1550,7 +1551,7 @@ ALTER TABLE `EligibleAreaUpdates`
 -- AUTO_INCREMENT for table `exam_candidates`
 --
 ALTER TABLE `exam_candidates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `MFTIP_form`
