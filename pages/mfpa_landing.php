@@ -103,7 +103,7 @@ li{
 
 <body>
 
-<?php include '../includes/header_mfpa.php'; ?>   
+<?php include '../includes/header_mfpaLanding.php'; ?>   
     <main>
     <h1 id="heading">Welcome to the MFPA Exam Preparation Portal</h1>
     <div id="content"></div>

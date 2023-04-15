@@ -65,7 +65,7 @@ $approvers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
-    <?php include '../includes/header-landowner.php'; ?>
+    <?php include '../includes/header_connectMFPA.php'; ?>
 
     <main>
         <section>
